@@ -27,7 +27,7 @@ const list: { url: string; name: string }[] = [
   { url: "../../assets/logo/preact.svg", name: "Preact" },
   { url: "../../assets/logo/angular.svg", name: "Angular" },
   { url: "../../assets/logo/polymer.svg", name: "Polymer" },
-  { url: "../../assets/logo/undraw.jpg", name: "Undraw" },
+  { url: "../../assets/logo/undraw.webp", name: "UnDraw" },
   { url: "../../assets/logo/firebase.svg", name: "Firebase" },
   { url: "../../assets/logo/vercel.svg", name: "Vercel(Zeit)" },
   { url: "../../assets/logo/netlify.svg", name: "Netlify" },

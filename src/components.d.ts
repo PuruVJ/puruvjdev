@@ -7,8 +7,6 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { LocationSegments, } from "@stencil/router";
 export namespace Components {
-    interface AboutPage {
-    }
     interface AppHome {
     }
     interface AppNav {
@@ -19,16 +17,12 @@ export namespace Components {
     }
     interface AppRoot {
     }
+    interface BlogsOverview {
+    }
     interface WorkedWith {
     }
 }
 declare global {
-    interface HTMLAboutPageElement extends Components.AboutPage, HTMLStencilElement {
-    }
-    var HTMLAboutPageElement: {
-        prototype: HTMLAboutPageElement;
-        new (): HTMLAboutPageElement;
-    };
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
     }
     var HTMLAppHomeElement: {
@@ -47,6 +41,12 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLBlogsOverviewElement extends Components.BlogsOverview, HTMLStencilElement {
+    }
+    var HTMLBlogsOverviewElement: {
+        prototype: HTMLBlogsOverviewElement;
+        new (): HTMLBlogsOverviewElement;
+    };
     interface HTMLWorkedWithElement extends Components.WorkedWith, HTMLStencilElement {
     }
     var HTMLWorkedWithElement: {
@@ -54,16 +54,14 @@ declare global {
         new (): HTMLWorkedWithElement;
     };
     interface HTMLElementTagNameMap {
-        "about-page": HTMLAboutPageElement;
         "app-home": HTMLAppHomeElement;
         "app-nav": HTMLAppNavElement;
         "app-root": HTMLAppRootElement;
+        "blogs-overview": HTMLBlogsOverviewElement;
         "worked-with": HTMLWorkedWithElement;
     }
 }
 declare namespace LocalJSX {
-    interface AboutPage {
-    }
     interface AppHome {
     }
     interface AppNav {
@@ -74,13 +72,15 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
+    interface BlogsOverview {
+    }
     interface WorkedWith {
     }
     interface IntrinsicElements {
-        "about-page": AboutPage;
         "app-home": AppHome;
         "app-nav": AppNav;
         "app-root": AppRoot;
+        "blogs-overview": BlogsOverview;
         "worked-with": WorkedWith;
     }
 }
@@ -88,10 +88,10 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "about-page": LocalJSX.AboutPage & JSXBase.HTMLAttributes<HTMLAboutPageElement>;
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-nav": LocalJSX.AppNav & JSXBase.HTMLAttributes<HTMLAppNavElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "blogs-overview": LocalJSX.BlogsOverview & JSXBase.HTMLAttributes<HTMLBlogsOverviewElement>;
             "worked-with": LocalJSX.WorkedWith & JSXBase.HTMLAttributes<HTMLWorkedWithElement>;
         }
     }

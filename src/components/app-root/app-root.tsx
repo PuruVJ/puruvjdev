@@ -13,14 +13,14 @@ export class AppRoot {
         <stencil-router>
           <stencil-route-switch scrollTopOffset={0}>
             <stencil-route url="/" component="app-home" exact={true} />
-            <stencil-route url="/about" component="about-page" exact={true} />
             <stencil-route
               url={["/blog", "/blog/"]}
-              component="blogs-list"
+              component="blogs-overview"
               exact={true}
             />
             <stencil-route
-              url="/blog/:id"
+              url={["/blog/:id", "/blog/:id/"]}
+              
               component="blog-page"
               exact={true}
             />

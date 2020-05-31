@@ -19,6 +19,15 @@
   bottom: 0;
 }
 
+.about-container {
+  transition: opacity 200ms ease-in;
+  opacity: 1;
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
 @media screen and (orientation: landscape) {
   :host {
     padding-left: 4.5rem;

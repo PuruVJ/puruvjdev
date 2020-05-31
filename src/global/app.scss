@@ -18,9 +18,10 @@ body {
   margin: 0px;
   padding: 0px;
   font-size: $base-size;
-  font-family: "Roboto", "Segoe UI", Helvetica, Arial, sans-serif,
+  font-family: "Fira Code", "Segoe UI", Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   line-height: $base-size * 1.618;
+  color: var(--app-color-dark);
 }
 
 ::-webkit-scrollbar {

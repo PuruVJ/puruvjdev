@@ -1,4 +1,4 @@
-import { Build, Component, ComponentInterface, h } from "@stencil/core";
+import { Build, Component, ComponentInterface, h, State } from "@stencil/core";
 import Typewriter from "typewriter-effect/dist/core";
 
 @Component({
@@ -7,6 +7,8 @@ import Typewriter from "typewriter-effect/dist/core";
   scoped: true,
 })
 export class AppHome implements ComponentInterface {
+  @State() allHidden: boolean = true;
+
   /**
    * Initialize the typewriter
    */
@@ -34,11 +36,18 @@ export class AppHome implements ComponentInterface {
 
   componentDidLoad() {
     Build.isBrowser && this.initTypewriter();
+
+    // Show everything
+    setTimeout(() => (this.allHidden = false), 100);
+  }
+
+  disconnectedCallback() {
+    this.allHidden = true;
   }
 
   render() {
     return [
-      <div class="about-container">
+      <div class={{ "about-container": !0, hidden: this.allHidden }}>
         <img
           class="cover-image"
           src={`../../assets/art/programming-light.svg`}
@@ -49,7 +58,7 @@ export class AppHome implements ComponentInterface {
         <h2>
           Hi, I am Puru. I am a self-taught fullstack web developer based in
           India. I make <mark>blazing fast</mark> and <mark>performant</mark>{" "}
-          web apps.
+          web apps. Like this blog.
         </h2>
         <br />
         <h1>What I have worked with so far</h1>
