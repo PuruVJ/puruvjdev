@@ -10,7 +10,7 @@ export class WorkedWith {
     return list.map(({ name, url }) => (
       <div class="tech">
         <img src={url} alt={`${name} logo`} />
-        <caption>{name}</caption>
+        {name}
       </div>
     ));
   }
