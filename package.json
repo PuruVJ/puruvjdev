@@ -10,7 +10,8 @@
   "dependencies": {
     "@mdi/js": "^5.3.45",
     "@stencil/helmet": "^0.3.2",
-    "@stencil/store": "^1.3.0"
+    "@stencil/store": "^1.3.0",
+    "typewriter-effect": "^2.13.1"
   },
   "devDependencies": {
     "@stencil/core": "^1.13.0",

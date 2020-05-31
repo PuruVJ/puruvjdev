@@ -7,21 +7,26 @@ import { Component, h } from "@stencil/core";
 })
 export class AppRoot {
   render() {
-    return (
-      <div>
-        <header>
-          <h1>Stencil App Starter</h1>
-        </header>
-
-        <main>
-          <stencil-router>
-            <stencil-route-switch scrollTopOffset={0}>
-              <stencil-route url="/" component="app-home" exact={true} />
-              <stencil-route url="/profile/:name" component="app-profile" />
-            </stencil-route-switch>
-          </stencil-router>
-        </main>
-      </div>
-    );
+    return [
+      <app-nav />,
+      <main>
+        <stencil-router>
+          <stencil-route-switch scrollTopOffset={0}>
+            <stencil-route url="/" component="app-home" exact={true} />
+            <stencil-route url="/about" component="about-page" exact={true} />
+            <stencil-route
+              url={["/blog", "/blog/"]}
+              component="blogs-list"
+              exact={true}
+            />
+            <stencil-route
+              url="/blog/:id"
+              component="blog-page"
+              exact={true}
+            />
+          </stencil-route-switch>
+        </stencil-router>
+      </main>,
+    ];
   }
 }

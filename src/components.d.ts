@@ -5,18 +5,39 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { LocationSegments, } from "@stencil/router";
 export namespace Components {
+    interface AboutPage {
+    }
     interface AppHome {
+    }
+    interface AppNav {
+        /**
+          * Router location
+         */
+        "location": LocationSegments;
     }
     interface AppRoot {
     }
 }
 declare global {
+    interface HTMLAboutPageElement extends Components.AboutPage, HTMLStencilElement {
+    }
+    var HTMLAboutPageElement: {
+        prototype: HTMLAboutPageElement;
+        new (): HTMLAboutPageElement;
+    };
     interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
     }
     var HTMLAppHomeElement: {
         prototype: HTMLAppHomeElement;
         new (): HTMLAppHomeElement;
+    };
+    interface HTMLAppNavElement extends Components.AppNav, HTMLStencilElement {
+    }
+    var HTMLAppNavElement: {
+        prototype: HTMLAppNavElement;
+        new (): HTMLAppNavElement;
     };
     interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
     }
@@ -25,17 +46,29 @@ declare global {
         new (): HTMLAppRootElement;
     };
     interface HTMLElementTagNameMap {
+        "about-page": HTMLAboutPageElement;
         "app-home": HTMLAppHomeElement;
+        "app-nav": HTMLAppNavElement;
         "app-root": HTMLAppRootElement;
     }
 }
 declare namespace LocalJSX {
+    interface AboutPage {
+    }
     interface AppHome {
+    }
+    interface AppNav {
+        /**
+          * Router location
+         */
+        "location"?: LocationSegments;
     }
     interface AppRoot {
     }
     interface IntrinsicElements {
+        "about-page": AboutPage;
         "app-home": AppHome;
+        "app-nav": AppNav;
         "app-root": AppRoot;
     }
 }
@@ -43,7 +76,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "about-page": LocalJSX.AboutPage & JSXBase.HTMLAttributes<HTMLAboutPageElement>;
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
+            "app-nav": LocalJSX.AppNav & JSXBase.HTMLAttributes<HTMLAppNavElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
         }
     }

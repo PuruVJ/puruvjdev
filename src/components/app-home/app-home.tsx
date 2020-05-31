@@ -1,28 +1,52 @@
-import { Component, h } from '@stencil/core';
+import { Build, Component, ComponentInterface, h } from "@stencil/core";
+import Typewriter from "typewriter-effect/dist/core";
 
 @Component({
-  tag: 'app-home',
-  styleUrl: 'app-home.scss',
-  scoped: true
+  tag: "app-home",
+  styleUrl: "app-home.scss",
+  scoped: true,
 })
-export class AppHome {
+export class AppHome implements ComponentInterface {
+  /**
+   * Initialize the typewriter
+   */
+  initTypewriter() {
+    new Typewriter("#typewriter", {
+      strings: [
+        "codes",
+        "creates",
+        "debugs",
+        "makes mistakes",
+        "blogs",
+        "designs",
+        "creates bugs",
+        "fixes bugs",
+        "helps",
+        "naps",
+        "tweets",
+        "lives",
+        "jokes",
+      ],
+      autoStart: true,
+      loop: true,
+    });
+  }
+
+  componentDidLoad() {
+    Build.isBrowser && this.initTypewriter();
+  }
 
   render() {
-    return (
-      <div class='app-home'>
-        <p>
-          Welcome to the Stencil App Starter.
-          You can use this starter to build entire apps all with
-          web components using Stencil!
-          Check out our docs on <a href='https://stenciljs.com'>stenciljs.com</a> to get started.
-        </p>
-
-        <stencil-route-link url='/profile/stencil'>
-          <button>
-            Profile page
-          </button>
-        </stencil-route-link>
-      </div>
-    );
+    return [
+      <div class="">
+        <img
+          class="cover-image"
+          src={`../../assets/art/programming-light.svg`}
+        />
+        <h1>
+          Puru <span id="typewriter"></span>
+        </h1>
+      </div>,
+    ];
   }
 }

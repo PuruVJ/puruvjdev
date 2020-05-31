@@ -1,0 +1,102 @@
+:host {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: max-content;
+}
+
+header {
+  width: 100%;
+  height: 3.4rem;
+  background-color: var(--app-color-shell);
+  border: none;
+  display: flex;
+  justify-content: space-evenly;
+  box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+#navigation {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+stencil-route-link,
+a[href] {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover, &.selected {
+    .text,
+    .icon svg {
+      color: var(--app-color-primary);
+      fill: var(--app-color-primary);
+    }
+  }
+
+  .icon,
+  .text {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: all 200ms ease-in;
+  }
+
+  .text {
+    font-size: 0.7rem;
+    color: rgba(var(--app-color-dark-rgb), 0.7);
+    font-weight: 500;
+    line-height: initial;
+  }
+
+  .icon svg {
+    fill: rgba(var(--app-color-dark-rgb), 0.7);
+    transition: all 200ms ease-in;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  :host {
+    left: 0;
+    height: 100%;
+    width: max-content;
+  }
+
+  stencil-route-link,
+  a[href] {
+    height: max-content;
+    width: max-content;
+  }
+
+  header {
+    width: 4rem;
+    height: 100%;
+    // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+    box-shadow: none;
+    border-right: solid 1px rgba(var(--app-color-dark-rgb), 0.1);
+  }
+
+  #navigation {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .nav-item {
+    margin: 1rem 0;
+    max-height: max-content;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

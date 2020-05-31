@@ -1,5 +1,85 @@
+// CSS theme variables
+@import "./theme";
+
+// Base font size
+$base-size: 1rem;
+
+body,
+html {
+  height: 100%;
+  background-color: var(--app-color-shell);
+}
+
+* {
+  transition: background 200ms ease-in, background-color 200ms ease-in;
+}
+
 body {
   margin: 0px;
   padding: 0px;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: $base-size;
+  font-family: "Roboto", "Segoe UI", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: $base-size * 1.618;
+}
+
+::-webkit-scrollbar {
+  // box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: rgba(var(--app-color-dark-rgb), 0.1);
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--app-color-dark-rgb), 0.8);
+  border: 3px solid transparent;
+  border-radius: 8px;
+  background-clip: content-box;
+  transition: all 200ms;
+
+  &:hover {
+    background-color: rgba(var(--app-color-dark-rgb), 1);
+  }
+}
+
+*::selection {
+  background-color: rgba(var(--app-color-primary-rgb), 0.3);
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: $base-size * 2.618;
+  line-height: $base-size * 2.618 * 1.618;
+}
+
+h2 {
+  font-size: $base-size * 1.618;
+  line-height: $base-size * 2.618;
+}
+
+h1,
+h2 {
+  font-family: "Comfortaa", sans-serif;
+  margin: 0;
+  color: var(--app-color-dark);
+}
+
+.hr-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  .hr {
+    width: 30%;
+    height: 0.4em;
+    background-color: var(--app-color-primary);
+    border-radius: 10em;
+  }
+}
+
+*, *:focus {
+  -webkit-tap-highlight-color: transparent;
+  outline: none !important;
 }
