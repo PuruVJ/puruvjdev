@@ -1,0 +1,23 @@
+:host {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media screen and (orientation: landscape) {
+  :host {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+.tech {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  img {
+    max-width: 50%;
+    min-width: 50%;
+  }
+}

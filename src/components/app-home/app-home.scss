@@ -1,14 +1,17 @@
 :host {
-  display: block;
+  display: flex;
   padding-left: 1rem;
+  justify-content: center;
+  // padding: 0;
+  padding-bottom: 4.5rem;
 }
 
 .cover-image {
   position: fixed;
   z-index: -1;
-  opacity: 0.06;
+  opacity: 0.1;
   margin: auto;
-  width: 50rem;
+  width: 60rem;
   max-width: 100%;
   left: 0;
   right: 0;
@@ -20,4 +23,12 @@
   :host {
     padding-left: 4.5rem;
   }
+
+  .about-container {
+    width: 61.8%;
+  }
+}
+
+#typewriter {
+  color: var(--app-color-primary);
 }

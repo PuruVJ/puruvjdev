@@ -38,7 +38,7 @@ export class AppHome implements ComponentInterface {
 
   render() {
     return [
-      <div class="">
+      <div class="about-container">
         <img
           class="cover-image"
           src={`../../assets/art/programming-light.svg`}
@@ -46,6 +46,14 @@ export class AppHome implements ComponentInterface {
         <h1>
           Puru <span id="typewriter"></span>
         </h1>
+        <h2>
+          Hi, I am Puru. I am a self-taught fullstack web developer based in
+          India. I make <mark>blazing fast</mark> and <mark>performant</mark>{" "}
+          web apps.
+        </h2>
+        <br />
+        <h1>What I have worked with so far</h1>
+        <worked-with />
       </div>,
     ];
   }

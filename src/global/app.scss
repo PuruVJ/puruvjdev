@@ -83,3 +83,8 @@ h2 {
   -webkit-tap-highlight-color: transparent;
   outline: none !important;
 }
+
+mark {
+  color: var(--app-color-primary);
+  background-color: transparent;
+}
