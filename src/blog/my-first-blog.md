@@ -1,6 +1,7 @@
 ---
 title: My First Blog post
 description: My very first blog post on my very first functional site
+date: 31 May, 2020
 ---
 
 # Intro
