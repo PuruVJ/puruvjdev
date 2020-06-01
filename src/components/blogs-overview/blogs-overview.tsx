@@ -1,5 +1,6 @@
 import { Component, h, State } from "@stencil/core";
 import { IBlog } from "../../interfaces/blog.interface";
+import Helmet from "@stencil/helmet";
 
 @Component({
   tag: "blogs-overview",
@@ -12,10 +13,9 @@ export class BlogsOverview {
   /**
    * Whether everything is hidden
    */
-  @State() allHidden: boolean = false;
+  @State() allHidden: boolean = true;
 
   async componentWillLoad() {
-    this.allHidden = true;
     this.blogsList = await getBlogList();
   }
 
@@ -44,6 +44,29 @@ export class BlogsOverview {
           )
         )}
       </div>,
+      <Helmet>
+        {/* Default tags */}
+        <title>Blog / Puru Vijay</title>
+        <meta
+          name="description"
+          content="Read about web development, designing and programming on Puru Vijay's blog"
+        />
+
+        {/* OG tags */}
+        <meta property="og:title" content="Blog / Puru Vijay" />
+        <meta
+          property="og:description"
+          content="Read about web development, designing and programming on Puru Vijay's blog."
+        />
+        <meta
+          property="og:image"
+          content={`${window.location.origin}/assets/media/blog-social-intro.png`}
+        />
+        <meta property="og:url" content={window.location.href} />
+
+        {/* Twitter tags */}
+        <meta name="twitter:site" content="@puruvjdev" />
+      </Helmet>,
     ];
   }
 }

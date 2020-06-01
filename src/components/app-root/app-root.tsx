@@ -1,4 +1,6 @@
 import { Component, h } from "@stencil/core";
+import { AppIcon } from "../../abstract-comps/app-icon";
+import { mdiTwitter, mdiCopyright } from "@mdi/js";
 
 @Component({
   tag: "app-root",
@@ -20,13 +22,28 @@ export class AppRoot {
             />
             <stencil-route
               url={["/blog/:id", "/blog/:id/"]}
-              
               component="blog-page"
               exact={true}
             />
           </stencil-route-switch>
         </stencil-router>
       </main>,
+      <footer>
+        <div id="text">
+          <span id="copyright">&copy;</span> &nbsp; Puru Vijay
+        </div>
+        <div id="social">
+          <span id="twitter">
+            <a
+              href="https://twitter.com/puruvjdev"
+              target="_blank"
+              rel="noopener"
+            >
+              <AppIcon path={mdiTwitter} />
+            </a>
+          </span>
+        </div>
+      </footer>,
     ];
   }
 }

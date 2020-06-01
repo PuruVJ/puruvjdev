@@ -7,7 +7,7 @@ import Typewriter from "typewriter-effect/dist/core";
   scoped: true,
 })
 export class AppHome implements ComponentInterface {
-  @State() allHidden: boolean = false;
+  @State() allHidden: boolean = true;
 
   /**
    * Initialize the typewriter
@@ -32,10 +32,6 @@ export class AppHome implements ComponentInterface {
       autoStart: true,
       loop: true,
     });
-  }
-
-  componentWillLoad() {
-    this.allHidden = true;
   }
 
   componentDidLoad() {

@@ -1,16 +1,57 @@
 :host {
-  display: block;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   width: 100%;
+  padding-bottom: 3.4rem;
 }
 
 main {
-  height: 100%;
-  width: 100%;
+  flex-grow: 1;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+
+  #social {
+    display: flex;
+  }
+
+  #text {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #copyright {
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    padding-top: 8px;
+  }
+
+  svg {
+    fill: rgba(var(--app-color-dark-rgb), 0.6);
+    transition: fill 200ms ease-in;
+  }
+}
+
+#twitter {
+  &:hover {
+    svg {
+      fill: #1da1f2;
+    }
+  }
 }
 
 @media screen and (orientation: landscape) {
   main {
     padding: 0;
+  }
+  :host {
+    padding-bottom: 0;
   }
 }
