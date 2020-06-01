@@ -17,6 +17,8 @@ export namespace Components {
     }
     interface AppRoot {
     }
+    interface BlogPage {
+    }
     interface BlogsOverview {
     }
     interface WorkedWith {
@@ -41,6 +43,12 @@ declare global {
         prototype: HTMLAppRootElement;
         new (): HTMLAppRootElement;
     };
+    interface HTMLBlogPageElement extends Components.BlogPage, HTMLStencilElement {
+    }
+    var HTMLBlogPageElement: {
+        prototype: HTMLBlogPageElement;
+        new (): HTMLBlogPageElement;
+    };
     interface HTMLBlogsOverviewElement extends Components.BlogsOverview, HTMLStencilElement {
     }
     var HTMLBlogsOverviewElement: {
@@ -57,6 +65,7 @@ declare global {
         "app-home": HTMLAppHomeElement;
         "app-nav": HTMLAppNavElement;
         "app-root": HTMLAppRootElement;
+        "blog-page": HTMLBlogPageElement;
         "blogs-overview": HTMLBlogsOverviewElement;
         "worked-with": HTMLWorkedWithElement;
     }
@@ -72,6 +81,8 @@ declare namespace LocalJSX {
     }
     interface AppRoot {
     }
+    interface BlogPage {
+    }
     interface BlogsOverview {
     }
     interface WorkedWith {
@@ -80,6 +91,7 @@ declare namespace LocalJSX {
         "app-home": AppHome;
         "app-nav": AppNav;
         "app-root": AppRoot;
+        "blog-page": BlogPage;
         "blogs-overview": BlogsOverview;
         "worked-with": WorkedWith;
     }
@@ -91,6 +103,7 @@ declare module "@stencil/core" {
             "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
             "app-nav": LocalJSX.AppNav & JSXBase.HTMLAttributes<HTMLAppNavElement>;
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "blog-page": LocalJSX.BlogPage & JSXBase.HTMLAttributes<HTMLBlogPageElement>;
             "blogs-overview": LocalJSX.BlogsOverview & JSXBase.HTMLAttributes<HTMLBlogsOverviewElement>;
             "worked-with": LocalJSX.WorkedWith & JSXBase.HTMLAttributes<HTMLWorkedWithElement>;
         }

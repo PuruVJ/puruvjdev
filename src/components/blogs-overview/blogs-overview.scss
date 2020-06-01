@@ -1,12 +1,54 @@
 :host {
   display: flex;
-  padding-left: 1rem;
+  padding: 0 1rem 4.5rem 1rem;
   justify-content: center;
-  padding-bottom: 4.5rem;
 }
 
 #blogs-list-container {
   width: 100%;
+}
+
+.cover-image {
+  position: fixed;
+  z-index: -1;
+  opacity: 0.06;
+  margin: auto;
+  width: 60rem;
+  max-width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#title {
+  color: var(--app-color-primary);
+}
+
+#description {
+  color: var(--app-color-dark);
+}
+
+.blog-link {
+  border-radius: 1rem;
+  padding: 1rem 0.5rem;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(var(--app-color-primary-rgb), 0.2);
+  }
+}
+
+#date-posted {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  color: var(--app-color-primary);
+  font-weight: bold;
+}
+
+.blog-link:not(.last) {
+  margin-bottom: 1rem;
 }
 
 @media screen and (orientation: landscape) {

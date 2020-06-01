@@ -38,7 +38,7 @@ export class AppHome implements ComponentInterface {
     Build.isBrowser && this.initTypewriter();
 
     // Show everything
-    setTimeout(() => (this.allHidden = false), 100);
+    setTimeout(() => (this.allHidden = false), 50);
   }
 
   disconnectedCallback() {
