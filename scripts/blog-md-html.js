@@ -27,14 +27,6 @@ const fm = require("front-matter");
     // Get the metadata inside the markdown
     const { attributes, body } = fm(fileData);
 
-    // The date to mark the file
-    let date = attributes.date;
-
-    // Let's get the date
-    if (!date) {
-      attributes.date = (await stat(filePath)).birthtime.toString();
-    }
-
     // Let's render it
     const html = md.render(body);
 

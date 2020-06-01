@@ -19,21 +19,15 @@ const fm = require("front-matter");
     const fileName = file.split(".")[0];
 
     // Get the metadata inside the markdown
-    const { attributes } = fm(data + "");
-
-    // The date to mark the file
-    let date = attributes.date;
-
-    // Let's get the date
-    if (!date) {
-      attributes.date = (await stat(filePath)).birthtime.toString();
-    }
+    const {
+      attributes: { title, description, date },
+    } = fm(data);
 
     // Let's push
     finaldata.push({
-      title: attributes.title,
-      description: attributes.description,
-      date: attributes.date,
+      title,
+      description,
+      date,
       id: fileName,
     });
   }
@@ -44,5 +38,5 @@ const fm = require("front-matter");
     JSON.stringify(finaldata)
   );
 
-  console.log('---------- Generated ------------')
+  console.log("---------- Generated ------------");
 })();
