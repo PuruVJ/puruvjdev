@@ -62,7 +62,7 @@ export class AppHome implements ComponentInterface {
         <h1>
           Puru <span id="typewriter"></span>
         </h1>
-        <h2>
+        <h2 id="me-intro">
           Hi, I am Puru. I am a self-taught fullstack web developer based in
           India. I make <mark>blazing fast</mark> and <mark>performant</mark>{" "}
           web apps. Like this blog.
