@@ -15,6 +15,8 @@ export class BlogsOverview {
    */
   @State() allHidden: boolean = true;
 
+  pageTitle: string = "Blog / Puru Vijay";
+
   async componentWillLoad() {
     this.blogsList = await getBlogList();
   }
@@ -22,6 +24,8 @@ export class BlogsOverview {
   componentDidLoad() {
     // Show everything
     setTimeout(() => (this.allHidden = false), 50);
+
+    document.title = this.pageTitle;
   }
 
   render() {
@@ -46,14 +50,14 @@ export class BlogsOverview {
       </div>,
       <Helmet>
         {/* Default tags */}
-        <title>Blog / Puru Vijay</title>
+        <title>{this.pageTitle}</title>
         <meta
           name="description"
           content="Read about web development, designing and programming on Puru Vijay's blog"
         />
 
         {/* OG tags */}
-        <meta property="og:title" content="Blog / Puru Vijay" />
+        <meta property="og:title" content={this.pageTitle} />
         <meta
           property="og:description"
           content="Read about web development, designing and programming on Puru Vijay's blog."

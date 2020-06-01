@@ -1,5 +1,6 @@
 import { Build, Component, ComponentInterface, h, State } from "@stencil/core";
 import Typewriter from "typewriter-effect/dist/core";
+import Helmet from "@stencil/helmet";
 
 @Component({
   tag: "app-home",
@@ -8,6 +9,11 @@ import Typewriter from "typewriter-effect/dist/core";
 })
 export class AppHome implements ComponentInterface {
   @State() allHidden: boolean = true;
+
+  /**
+   * Page title
+   */
+  pageTitle: string = "Puru, Developer and Designer";
 
   /**
    * Initialize the typewriter
@@ -39,6 +45,8 @@ export class AppHome implements ComponentInterface {
 
     // Show everything
     setTimeout(() => (this.allHidden = false), 50);
+
+    document.title = this.pageTitle;
   }
 
   disconnectedCallback() {
