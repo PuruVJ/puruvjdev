@@ -10,11 +10,6 @@ export class AppHome implements ComponentInterface {
   @State() allHidden: boolean = true;
 
   /**
-   * Page title
-   */
-  pageTitle: string = "Puru, Developer and Designer";
-
-  /**
    * Initialize the typewriter
    */
   initTypewriter() {
@@ -45,7 +40,7 @@ export class AppHome implements ComponentInterface {
     // Show everything
     setTimeout(() => (this.allHidden = false), 50);
 
-    document.title = this.pageTitle;
+    document.title = 'Puru, Developer and Designer';
   }
 
   disconnectedCallback() {
