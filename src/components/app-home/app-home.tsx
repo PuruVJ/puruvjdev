@@ -1,6 +1,5 @@
 import { Build, Component, ComponentInterface, h, State } from "@stencil/core";
 import Typewriter from "typewriter-effect/dist/core";
-import Helmet from "@stencil/helmet";
 
 @Component({
   tag: "app-home",
