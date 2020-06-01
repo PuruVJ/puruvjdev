@@ -6,6 +6,11 @@
 
 #blogs-list-container {
   width: 100%;
+  transition: opacity 200ms ease-in;
+
+  &.hidden {
+    opacity: 0;
+  }
 }
 
 .cover-image {

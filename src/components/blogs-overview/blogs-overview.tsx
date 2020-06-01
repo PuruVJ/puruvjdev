@@ -9,13 +9,24 @@ import { IBlog } from "../../interfaces/blog.interface";
 export class BlogsOverview {
   @State() blogsList: IBlog[] = [];
 
+  /**
+   * Whether everything is hidden
+   */
+  @State() allHidden: boolean = false;
+
   async componentWillLoad() {
+    this.allHidden = true;
     this.blogsList = await getBlogList();
+  }
+
+  componentDidLoad() {
+    // Show everything
+    setTimeout(() => (this.allHidden = false), 50);
   }
 
   render() {
     return [
-      <div id="blogs-list-container">
+      <div id="blogs-list-container" class={{ hidden: this.allHidden }}>
         <img class="cover-image" src={`../../assets/art/typewriter.svg`} />
         <h1>Blog</h1>
         {this.blogsList.map(
