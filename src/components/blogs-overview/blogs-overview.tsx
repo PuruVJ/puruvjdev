@@ -65,7 +65,7 @@ export class BlogsOverview {
         <meta property="og:url" content={window.location.href} />
 
         {/* Twitter tags */}
-        <meta name="twitter:site" content="@puruvjdev" />
+        {/* <meta name="twitter:site" content="@puruvjdev" />
         <meta name="twitter:title" content="Blog / Puru Vijay" />
         <meta
           name="twitter:description"
@@ -75,7 +75,7 @@ export class BlogsOverview {
           name="twitter:image"
           content={`${window.location.origin}/assets/media/blog-social-intro.png`}
         />
-        <meta name="twitter:url" content={window.location.href} />
+        <meta name="twitter:url" content={window.location.href} /> */}
       </Helmet>,
     ];
   }
