@@ -9,7 +9,7 @@ import { IBlog } from "../../interfaces/blog.interface";
 export class BlogsOverview {
   blogsList: IBlog[] = [];
 
-  async componentWillLoad() {
+  async componentDidLoad() {
     this.blogsList = await getBlogList();
   }
 
