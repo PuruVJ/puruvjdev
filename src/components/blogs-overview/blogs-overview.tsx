@@ -1,4 +1,4 @@
-import { Component, h, State } from "@stencil/core";
+import { Component, h, State, Build } from "@stencil/core";
 import { IBlog } from "../../interfaces/blog.interface";
 
 @Component({
@@ -10,7 +10,7 @@ export class BlogsOverview {
   @State() blogsList: IBlog[] = [];
 
   async componentWillLoad() {
-    this.blogsList = await getBlogList();
+    Build.isServer && (this.blogsList = await getBlogList());
   }
 
   render() {
@@ -26,7 +26,10 @@ export class BlogsOverview {
             return aDate > bDate ? -1 : 1;
           })
           .map(({ id, title, description, date }, i, { length }) => (
-            <stencil-route-link anchorClass="blog-link-anchor" url={`/blog/${id}`}>
+            <stencil-route-link
+              anchorClass="blog-link-anchor"
+              url={`/blog/${id}`}
+            >
               <div class={{ "blog-link": true, last: i + 1 === length }}>
                 <h2 id="title">{title}</h2>
                 <div id="description">{description}</div>
