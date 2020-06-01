@@ -1,4 +1,4 @@
-import { Component, h, State, Build } from "@stencil/core";
+import { Component, h, State } from "@stencil/core";
 import { IBlog } from "../../interfaces/blog.interface";
 
 @Component({
@@ -10,7 +10,7 @@ export class BlogsOverview {
   @State() blogsList: IBlog[] = [];
 
   async componentWillLoad() {
-    Build.isServer && (this.blogsList = await getBlogList());
+    this.blogsList = await getBlogList();
   }
 
   render() {
