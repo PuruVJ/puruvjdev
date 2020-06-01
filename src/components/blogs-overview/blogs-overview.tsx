@@ -18,14 +18,8 @@ export class BlogsOverview {
       <div id="blogs-list-container">
         <img class="cover-image" src={`../../assets/art/typewriter.svg`} />
         <h1>Blog</h1>
-        {this.blogsList
-          .sort((a, b) => {
-            const aDate = new Date(a.date);
-            const bDate = new Date(b.date);
-
-            return aDate > bDate ? -1 : 1;
-          })
-          .map(({ id, title, description, date }, i, { length }) => (
+        {this.blogsList.map(
+          ({ id, title, description, date }, i, { length }) => (
             <stencil-route-link
               anchorClass="blog-link-anchor"
               url={`/blog/${id}`}
@@ -36,7 +30,8 @@ export class BlogsOverview {
                 <div id="date-posted">{formatDate(date)}</div>
               </div>
             </stencil-route-link>
-          ))}
+          )
+        )}
       </div>,
     ];
   }
@@ -45,11 +40,16 @@ export class BlogsOverview {
 // Let's retrieve the list of blogs
 async function getBlogList(): Promise<IBlog[]> {
   // Make the request
-  const request = await fetch("../../assets/data/blogs-list.json").then((res) =>
-    res.json()
-  );
+  const request: IBlog[] = await fetch(
+    "../../assets/data/blogs-list.json"
+  ).then((res) => res.json());
 
-  return request;
+  return request.sort((a, b) => {
+    const aDate = new Date(a.date);
+    const bDate = new Date(b.date);
+
+    return aDate > bDate ? -1 : 1;
+  });
 }
 
 /**
