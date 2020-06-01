@@ -16,4 +16,10 @@ export const config: Config = {
     },
   ],
   plugins: [sass({ includePaths: ["./node_modules/"] })],
+  copy: [
+    {
+      src: "./google7cdade01e9ae4685.html",
+      dest: "google7cdade01e9ae4685.html",
+    },
+  ],
 };
