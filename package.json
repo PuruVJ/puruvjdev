@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "description": "Puru Vijay's personal site",
   "scripts": {
+    "prebuild": "cd scripts && node blogs-list.js && node blog-md-html.js",
     "build": "stencil build --prerender",
     "start": "stencil build --dev --watch --serve --no-open --port 1211"
   },
