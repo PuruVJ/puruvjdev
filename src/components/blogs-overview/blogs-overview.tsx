@@ -66,6 +66,16 @@ export class BlogsOverview {
 
         {/* Twitter tags */}
         <meta name="twitter:site" content="@puruvjdev" />
+        <meta name="twitter:title" content="Blog / Puru Vijay" />
+        <meta
+          name="twitter:description"
+          content="Read about web development, designing and programming on Puru Vijay's blog."
+        />
+        <meta
+          name="twitter:image"
+          content={`${window.location.origin}/assets/media/blog-social-intro.png`}
+        />
+        <meta name="twitter:url" content={window.location.href} />
       </Helmet>,
     ];
   }
