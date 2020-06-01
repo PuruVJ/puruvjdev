@@ -1,6 +1,6 @@
+import { mdiTwitter } from "@mdi/js";
 import { Component, h } from "@stencil/core";
 import { AppIcon } from "../../abstract-comps/app-icon";
-import { mdiTwitter, mdiCopyright } from "@mdi/js";
 
 @Component({
   tag: "app-root",
