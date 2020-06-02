@@ -32,14 +32,12 @@ export class BlogPage {
       <Host class={{ hidden: this.allHidden }}>
         <div id="blog-content">
           <h1>{this.blogData.title}</h1>
-          <p>
-            <b>
-              Published on{" "}
-              <span style={{ color: "var(--app-color-primary)" }}>
-                {formatDate(this.blogData.date)}
-              </span>
-            </b>
-          </p>
+          <b>
+            Published on{" "}
+            <span style={{ color: "var(--app-color-primary)" }}>
+              {formatDate(this.blogData.date)}
+            </span>
+          </b>
           <div id="content" innerHTML={this.blogData.body}></div>
         </div>
         <Helmet>
