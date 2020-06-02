@@ -10,7 +10,8 @@
 header {
   width: 100%;
   height: 3.4rem;
-  background-color: var(--app-color-shell);
+  background: var(--app-color-shell);
+  transition: none;
   border: none;
   display: flex;
   justify-content: space-evenly;
