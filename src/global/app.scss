@@ -132,3 +132,7 @@ pre.shiki {
     overflow: inherit;
   }
 }
+ a[href] {
+   color: var(--app-color-primary);
+   font-weight: bold;
+ }
