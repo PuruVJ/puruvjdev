@@ -1,6 +1,6 @@
 ---
-title: StencilJS Route Change events
-description: How to detect route changes in StencilJS Router
+title: StencilJS Route Change events - Without any dependencies
+description: How to detect route changes in StencilJS Router using the core StencilJS APIs. No dependencies.
 date: 3 June, 2020 01:46
 ---
 
