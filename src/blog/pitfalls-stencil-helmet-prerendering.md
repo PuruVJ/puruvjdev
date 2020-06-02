@@ -9,7 +9,7 @@ I assume that if you're here, you already know a little about [StencilJS](https:
 ## Back story
 When I was building this blog, I was trying to use [Stencil Helmet](https://www.npmjs.com/package/@stencil/helmet) to dynamically add some tags to the `<head>` tag, and these dynamic tags would show up in prerendered pages. You can even confirm their existence right now, by pressing `Ctrl+U` key combo or by manually typing `view-source:` behind the actual URL.
 
-```txt
+```html
 view-source:https://puruvjdev.now.sh
 ```
 

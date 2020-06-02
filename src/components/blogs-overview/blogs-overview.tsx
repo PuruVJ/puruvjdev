@@ -35,7 +35,7 @@ export class BlogsOverview {
         <h1>Blog</h1>
         {this.blogsList.map(
           ({ id, title, description, date }, i, { length }) => (
-            <stencil-route-link url={`/blog/${id}`}>
+            <stencil-route-link anchorClass="link-a" url={`/blog/${id}`}>
               <div class={{ "blog-link": true, last: i + 1 === length }}>
                 <h2 id="title">{title}</h2>
                 <div id="description">{description}</div>

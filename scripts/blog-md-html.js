@@ -32,7 +32,7 @@ const fm = require("front-matter");
 
     await writeFile(
       `../src/assets/blog/${fileName}.json`,
-      JSON.stringify({ metdata: attributes, body: html })
+      JSON.stringify({ ...attributes, body: html })
     );
   });
 })();

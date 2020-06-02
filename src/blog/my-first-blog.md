@@ -4,7 +4,7 @@ description: My very first blog post on my very first functional site
 date: 31 May, 2020
 ---
 
-# Intro
+## Intro
 
 Hi I am Puru. This is my very first blog post. THE VERY FIRST.
 
@@ -15,7 +15,6 @@ My writing and grammar is quite rusty at present, but no issues. I'll be improvi
 Wait Wait Wait. Let me check if my code highlighting is working.
 
 ```tsx
-
 import { Component, h } from "@stencil/core";
 
 @Component({
@@ -48,7 +47,6 @@ export class AppRoot {
     ];
   }
 }
-
 ```
 
 Signing off!

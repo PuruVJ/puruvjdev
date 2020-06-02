@@ -20,11 +20,7 @@ export class AppRoot {
               component="blogs-overview"
               exact={true}
             />
-            <stencil-route
-              url={["/blog/:id", "/blog/:id/"]}
-              component="blog-page"
-              exact={true}
-            />
+            <stencil-route url="/blog/:id" component="blog-page" />
           </stencil-route-switch>
         </stencil-router>
       </main>,
