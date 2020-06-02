@@ -52,10 +52,7 @@ export class BlogPage {
             property="og:title"
             content={`${this.blogData.title} // Puru`}
           />
-          <meta
-            property="og:description"
-            content="Read about web development, designing and programming on Puru Vijay's blog."
-          />
+          <meta property="og:description" content={this.blogData.description} />
           <meta
             property="og:image"
             content={`${window.location.origin}/assets/media/blog-social-intro.png`}
