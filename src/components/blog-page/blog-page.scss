@@ -1,19 +1,20 @@
 :host {
   display: flex;
   width: 100%;
-  line-height: 1.2rem * 1.618;
+  line-height: 1.4rem * 1.618;
   transition: opacity 200ms ease-in;
   font-family: 'Quicksand', sans-serif;
   opacity: 1;
+  font-size: 1.4rem;
 }
 
 :host.hidden {
   opacity: 0;
 }
 
-:host > *:not(pre) {
-  font-size: 1.2rem;
-}
+// :host > *:not(pre) {
+//   font-size: 1.2rem;
+// }
 
 #blog-content {
   padding: 1rem;
