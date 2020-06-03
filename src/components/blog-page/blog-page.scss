@@ -1,12 +1,13 @@
 :host {
   display: flex;
   width: 100%;
-  line-height: 1.4rem * 1.618;
+  line-height: 1rem * 2.618;
   transition: opacity 200ms ease-in;
   font-family: 'Quicksand', sans-serif;
   opacity: 1;
-  font-size: 1.4rem;
+  font-size: 1rem * 1.618;
 }
+
 
 :host.hidden {
   opacity: 0;

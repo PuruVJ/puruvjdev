@@ -149,3 +149,10 @@ a[href] {
   color: var(--app-color-primary);
   font-weight: bold;
 }
+
+#blog-content {
+  h2 {
+    font-size: $base-size * 2.618;
+    line-height: $base-size * 2.618 * 1.618;
+  }
+}
