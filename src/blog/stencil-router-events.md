@@ -4,11 +4,11 @@ description: How to detect route changes in StencilJS Router using the core Sten
 date: 3 June, 2020 01:46
 ---
 
-Hey Stencil user! Are you using the official [StencilJS Router](https://github.com/ionic-team/stencil-router/wiki) and can't find how to detect route change events? Don't worry, my friend! You will find all the answers here.
+Hey Stencil user! Are you using the official <a href="https://github.com/ionic-team/stencil-router/wiki" target="_blank" rel="noopener">StencilJS Router</a> and can't find how to detect route change events? Don't worry, my friend! You will find all the answers here.
 
 So, is there an `onRouteChange` event somewhere? Or something like `router.subscribe`?
 
-Nope. Its much simpler. Much much simpler, but for some reason, its not documented in the official Wiki (As of the time of writing), resulting in people using the [`ion-router`](https://ionicframework.com/docs/api/router) instead, where everything is very very well documented.
+Nope. Its much simpler. Much much simpler, but for some reason, its not documented in the official Wiki (As of the time of writing), resulting in people using the <a href="https://ionicframework.com/docs/api/router" target="_blank" rel="noopener">`ion-router`</a> instead, where everything is very very well documented.
 
 I myself had to port an application from Stencil Router to Ion router just because of this very reason, and it was a total pain.
 
@@ -113,6 +113,6 @@ export class MyComponent {
 injectHistory(MyComponent);
 ```
 
-Here. Hope it helps. If you still run into issues, just ping me on Twitter. The link is in the footer. 
+Here. Hope it helps. If you still run into issues, just ping me on Twitter. The link is in the footer.
 
 Goodbye and Enjoy!
