@@ -12,7 +12,7 @@ Nope. Its much simpler. Much much simpler, but for some reason, its not document
 
 I myself had to port an application from Stencil Router to Ion router just because of this very reason, and it was a total pain.
 
-But after some searching and experimenting, I figured it out (No not time travel, I ain't Tony Stark). And was staring me in the face. It was that simple.
+But after some searching and experimenting, I figured it out (No not time travel, I ain't Tony Stark). And it was staring me in the face. It was that simple. Its built right into the very core of Stencil's architechture.
 
 ## Solution
 
@@ -71,7 +71,7 @@ Yup this code will still not work. Let me explain why:
 
 The important bit here is the `location` prop. Think about it. Its a **Prop**. You pass a value to it. But here, nothing really is passing any value to our component here. Stencil certainly ain't.
 
-So, the solution is to have _something_ pass a value to the `location` prop. Notice the `injectHistory` method we have imporgted but not used anywhere. Now's the time to use it. Just add this line at the very end of your file
+So, the solution is to have _something_ pass a value to the `location` prop. Notice the `injectHistory` method we have imported but not used anywhere. Now's the time to use it. Just add this line at the very end of your file
 
 ```javascript
 injectHistory(MyComponent);
