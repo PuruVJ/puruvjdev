@@ -3,6 +3,7 @@
   width: 100%;
   line-height: 1.2rem * 1.618;
   transition: opacity 200ms ease-in;
+  font-family: 'Quicksand', sans-serif;
   opacity: 1;
 }
 
@@ -27,8 +28,4 @@
   :host {
     justify-content: center;
   }
-}
-
-pre code {
-  font-size: 1rem;
 }
