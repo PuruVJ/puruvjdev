@@ -108,9 +108,9 @@ export class MyComponent {
   render() {
     return <p>My name is {this.name}</p>;
   }
-
-  injectHistory(MyComponent);
 }
+
+injectHistory(MyComponent);
 ```
 
 Here. Hope it helps. If you still run into issues, just ping me on Twitter. The link is in the footer. 
