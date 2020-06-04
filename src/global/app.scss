@@ -158,12 +158,26 @@ a[href] {
 }
 
 blog-page {
+  blockquote {
+    margin: 0;
+    padding-left: 1rem;
+    border-left: solid 4px var(--app-color-primary);
+    font-family: "Fira Code", monospace;
+    font-style: italic;
+  }
+
   .picture-container {
     margin: 1rem 0;
   }
+
   figure {
     margin: 0;
     position: relative;
+    border-radius: 0.5rem;
+
+    picture {
+      border-radius: inherit;
+    }
 
     img {
       max-width: 100%;
@@ -171,6 +185,7 @@ blog-page {
       top: 0;
       opacity: 0;
       transition: opacity 200ms ease-in;
+      border-radius: inherit;
 
       &.lazyloaded {
         opacity: 1;

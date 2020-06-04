@@ -52,6 +52,10 @@ const { JSDOM } = require("jsdom");
     // Get the metadata inside the markdown
     const { attributes, body } = fm(fileData);
 
+    // Reset the cover image if required
+    attributes.image_url =
+      attributes.image_url || "assets/media/blog-social-intro.png";
+
     // Let's render it
     let html = md.render(body);
 

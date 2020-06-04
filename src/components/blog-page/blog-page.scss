@@ -1,11 +1,11 @@
 :host {
   display: flex;
   width: 100%;
-  line-height: 1rem * 2.618;
+  line-height: 1rem * 1.4 * 1.618;
   transition: opacity 200ms ease-in;
   font-family: 'Quicksand', sans-serif;
   opacity: 1;
-  font-size: 1rem * 1.618;
+  font-size: 1rem * 1.4;
 }
 
 :host.hidden {

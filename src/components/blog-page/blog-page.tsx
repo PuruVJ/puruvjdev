@@ -55,7 +55,7 @@ export class BlogPage {
           <meta property="og:description" content={this.blogData.description} />
           <meta
             property="og:image"
-            content={`${window.location.origin}/assets/media/blog-social-intro.png`}
+            content={`${window.location.origin}/${this.blogData.cover_image}`}
           />
           <meta property="og:url" content={window.location.href} />
         </Helmet>

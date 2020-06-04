@@ -3,5 +3,6 @@ export interface IBlog {
   title: string;
   date: string;
   description: string;
+  cover_image?: string;
   body?: string;
 }
