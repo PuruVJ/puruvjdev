@@ -140,7 +140,7 @@ async function optimizeBlogImages(src) {
     destination: folderPath,
     plugins: [
       webp({
-        quality: 90,
+        quality: 85,
       }),
     ],
   });
@@ -149,7 +149,7 @@ async function optimizeBlogImages(src) {
     destination: folderPath,
     plugins: [
       jpg({
-        quality: 90,
+        quality: 85,
       }),
     ],
   });
