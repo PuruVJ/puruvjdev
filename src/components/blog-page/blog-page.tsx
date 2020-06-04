@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, State } from "@stencil/core";
+import { Component, h, Host, Prop, State, Build } from "@stencil/core";
 import { injectHistory, MatchResults } from "@stencil/router";
 import { IBlog } from "../../interfaces/blog.interface";
 import Helmet from "@stencil/helmet";
@@ -20,11 +20,13 @@ export class BlogPage {
     this.blogData = await getBlogData(this.match.params.id);
   }
 
-  componentDidLoad() {
+  async componentDidLoad() {
     // Show everything
     setTimeout(() => (this.allHidden = false), 50);
 
     document.title = `${this.blogData.title} // Puru`;
+
+    Build.isBrowser && (await import("lazysizes"));
   }
 
   render() {

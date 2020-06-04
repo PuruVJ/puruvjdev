@@ -33,4 +33,21 @@ workbox.routing.registerRoute(
   })
 );
 
+workbox.routing.registerRoute(
+  // Cache image files.
+  /\.(?:json)$/,
+  // Use the cache if it's available.
+  new workbox.strategies.StaleWhileRevalidate({
+    // Use a custom cache name.
+    cacheName: "json-cache",
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 1000,
+        // Cache for a maximum of a week.
+        maxAgeSeconds: 7 * 24 * 60 * 60,
+      }),
+    ],
+  })
+);
+
 self.workbox.precaching.precacheAndRoute([]);

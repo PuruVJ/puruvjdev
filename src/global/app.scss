@@ -156,3 +156,25 @@ a[href] {
     line-height: $base-size * 2.618 * 1.618;
   }
 }
+
+blog-page {
+  .picture-container {
+    margin: 1rem 0;
+  }
+  figure {
+    margin: 0;
+    position: relative;
+
+    img {
+      max-width: 100%;
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      transition: opacity 200ms ease-in;
+
+      &.lazyloaded {
+        opacity: 1;
+      }
+    }
+  }
+}

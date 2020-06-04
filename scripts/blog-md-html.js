@@ -1,7 +1,9 @@
-const { readdir, readFile, writeFile, stat } = require("fs").promises;
+const { readdir, readFile, writeFile } = require("fs").promises;
 const markdown = require("markdown-it");
 const shiki = require("shiki");
 const fm = require("front-matter");
+const { optimizeBlogImages } = require("./optimize-images");
+const { JSDOM } = require("jsdom");
 
 (async () => {
   // Shiki instance
@@ -14,13 +16,12 @@ const fm = require("front-matter");
 
   // Parse the links in a different way
   // Remember old renderer, if overridden, or proxy to default renderer
-  var defaultRender =
+  const defaultRender =
     md.renderer.rules.link_open ||
-    function (tokens, idx, options, env, self) {
-      return self.renderToken(tokens, idx, options);
-    };
+    ((tokens, idx, options, env, self) =>
+      self.renderToken(tokens, idx, options));
 
-  md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+  md.renderer.rules.link_open = (tokens, idx, options, env, self) => {
     // If you are sure other plugins can't add `target` - drop check below
     var aIndex = tokens[idx].attrIndex("target");
 
@@ -46,13 +47,43 @@ const fm = require("front-matter");
     const fileName = filesAbs[i].split(".")[0];
 
     // Let's get the contents of the file
-    const fileData = await readFile(filePath, { encoding: "utf-8" });
+    const fileData = await readFile(filePath, "utf-8");
 
     // Get the metadata inside the markdown
     const { attributes, body } = fm(fileData);
 
     // Let's render it
-    const html = md.render(body);
+    let html = md.render(body);
+
+    // The dom representation
+    const { document } = new JSDOM(html).window;
+
+    // Get all the image tags
+    const imgs = document.querySelectorAll("img");
+
+    for (let img of imgs) {
+      // Lets collect values of `src`
+      const src = img.src;
+
+      // Let's make this image useless
+      img.src = "";
+      img.style.display = "none";
+
+      console.log(src);
+
+      // Now lets put the picture tag in there
+      const divContainer = document.createElement("div");
+      divContainer.classList.add("picture-container");
+
+      // Let's add the main stuff to this picture
+      divContainer.innerHTML = await optimizeBlogImages(src);
+
+      // Put it after the img
+      img.after(divContainer);
+    }
+
+    // Finally
+    html = document.body.innerHTML;
 
     await writeFile(
       `../src/assets/blog/${fileName}.json`,
