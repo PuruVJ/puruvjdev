@@ -34,13 +34,13 @@ export class AppHome implements ComponentInterface {
     });
   }
 
-  componentDidLoad() {
+  async componentDidLoad() {
     Build.isBrowser && this.initTypewriter();
 
     // Show everything
     setTimeout(() => (this.allHidden = false), 50);
 
-    document.title = 'Puru, Developer and Designer';
+    document.title = "Puru, Developer and Designer";
   }
 
   disconnectedCallback() {

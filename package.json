@@ -6,6 +6,7 @@
   "scripts": {
     "prebuild": "cd scripts && node blogs-list.js && node blog-md-html.js",
     "build": "stencil build --prerender",
+    "postbuild": "cd scripts && node ping-google-search.js",
     "start": "stencil build --dev --watch --serve --no-open --port 1211"
   },
   "dependencies": {
@@ -31,7 +32,6 @@
     "node-fetch": "^2.6.0",
     "resize-img": "^2.0.0",
     "shiki": "^0.1.7",
-    "string-replace-async": "^1.2.1",
     "workbox-build": "4.3.1"
   },
   "license": "MIT"

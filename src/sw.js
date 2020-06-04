@@ -50,9 +50,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  // Cache image files.
   /\.(?:json)$/,
-  // Use the cache if it's available.
   new workbox.strategies.StaleWhileRevalidate({
     // Use a custom cache name.
     cacheName: "json-cache",
