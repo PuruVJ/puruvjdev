@@ -38,7 +38,9 @@ const { JSDOM } = require("jsdom");
   };
 
   // get all blogs in directory
-  const filesAbs = await readdir("../src/blog");
+  const filesAbs = (await readdir("../src/blog")).filter((file) =>
+    file.endsWith(".md")
+  );
 
   const files = filesAbs.map((absFile) => `../src/blog/${absFile}`);
 

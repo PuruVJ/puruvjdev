@@ -31,7 +31,7 @@ export class BlogsOverview {
   render() {
     return [
       <div id="blogs-list-container" class={{ hidden: this.allHidden }}>
-        <img class="cover-image" src={`../../assets/art/typewriter.svg`} />
+        <img class="cover-image" src="../../assets/art/typewriter.svg" />
         <h1>Blog</h1>
         {this.blogsList.map(
           ({ id, title, description, date }, i, { length }) => (
@@ -89,6 +89,7 @@ async function getBlogList(): Promise<IBlog[]> {
  */
 function formatDate(dateStr: string) {
   const date = new Date(dateStr);
+  console.log(date);
 
   const dateTimeFormat = new Intl.DateTimeFormat("en", {
     year: "numeric",

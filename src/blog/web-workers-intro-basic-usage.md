@@ -1,7 +1,7 @@
 ---
 title: "Web Workers: Intro and Basic Usage"
 description: Have you ever heard this term "Web Workers" mentioned somewhere and wondered what the hell is this new thing? let me introduce you to this great tech.
-date: 4 June, 2020 00:00
+date: June 5, 2020 02:00
 cover_image: assets/media/road-grey-asphalt.jpg
 ---
 

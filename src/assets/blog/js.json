@@ -1,0 +1,1 @@
+{"image_url":"assets/media/blog-social-intro.png","body":"<p>const worker = new Worker(\"worker.js\");</p>\n<p>worker.postMessage(\"Hello\");\nworker.onmessage = (e) =&gt; {\ne;\n};</p>\n<p>// worker.js\nself.onmessage = (e) =&gt; {\nconst message = e.data;\nconsole.log(message);\n};</p>\n"}

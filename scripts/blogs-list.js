@@ -3,7 +3,9 @@ const fm = require("front-matter");
 
 (async () => {
   // Let's get all the files list
-  const filesList = await readdir("../src/blog/");
+  const filesList = (await readdir("../src/blog/")).filter((file) =>
+    file.endsWith(".md")
+  );
 
   // The final list of data
   let finaldata = [];
