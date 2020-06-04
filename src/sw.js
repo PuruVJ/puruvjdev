@@ -17,7 +17,7 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
   // Cache image files.
-  /\.(?:png|jpg|jpeg|svg|webp|svg|mp3|ico)$/,
+  /\.(?:png|jpg|jpeg|svg|webp|svg|mp3|ico|woff|woff2|ttf)$/,
   // Use the cache if it's available.
   new workbox.strategies.CacheFirst({
     // Use a custom cache name.
@@ -35,6 +35,23 @@ workbox.routing.registerRoute(
 
 workbox.routing.registerRoute(
   // Cache image files.
+  /\.(?:json)$/,
+  // Use the cache if it's available.
+  new workbox.strategies.StaleWhileRevalidate({
+    // Use a custom cache name.
+    cacheName: "json-cache",
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 1000,
+        // Cache for a maximum of a week.
+        maxAgeSeconds:  24 * 60 * 60,
+      }),
+    ],
+  })
+);
+
+workbox.routing.registerRoute(
+  // Cache image files.
   /\.(?:js|css|html)$/,
   // Use the cache if it's available.
   new workbox.strategies.StaleWhileRevalidate({
@@ -43,22 +60,13 @@ workbox.routing.registerRoute(
     plugins: [
       new workbox.expiration.Plugin({
         maxEntries: 1000,
+        // Cache for a maximum of a week.
         maxAgeSeconds: 7 * 24 * 60 * 60,
       }),
     ],
   })
 );
 
-workbox.routing.registerRoute(
-  /\.(?:json)$/,
-  new workbox.strategies.StaleWhileRevalidate({
-    // Use a custom cache name.
-    cacheName: "json-cache",
-    plugins: [
-      new workbox.expiration.Plugin({
-        maxEntries: 1000,
-        maxAgeSeconds: 24 * 60 * 60,
-      }),
-    ],
-  })
-);
+self.workbox.routing.registerNavigationRoute('/index.html');
+
+self.workbox.precaching.precacheAndRoute([]);
