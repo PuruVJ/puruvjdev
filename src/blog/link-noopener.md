@@ -41,4 +41,6 @@ Yup, this little attribute solves all of the above problems. An example of this 
 
 This is a small measure, but it can pay off really well. Every external link on this blog, for example, has this attribute to it. Check it out if you want to.
 
+[Read more about it here](https://web.dev/external-anchors-use-rel-noopener/)
+
 _That's it for today. Hope you liked the article. Ping me on Twitter if you have any problems or simply leave a review. Link is in the footer._
