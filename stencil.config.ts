@@ -10,7 +10,11 @@ export const config: Config = {
     {
       type: "www",
       // comment the following line to disable service workers in production
-      serviceWorker: { swSrc: "src/sw.js", globIgnores: ["**/*.json"] },
+      serviceWorker: {
+        swSrc: "src/sw.js",
+        globIgnores: ["**/*.json"],
+        globPatterns: ["**/*.{js,css,html,woff2,woff, svg}"],
+      },
       baseUrl: "https://puruvjdev.now.sh/",
       prerenderConfig: "./prerender-config.ts",
     },
