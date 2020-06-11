@@ -1,7 +1,7 @@
 {
   "name": "puruvjdev",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.2.6",
   "description": "Puru Vijay's personal site",
   "scripts": {
     "prebuild": "cd scripts && node blogs-list.js && node blog-md-html.js",
