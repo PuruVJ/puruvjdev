@@ -56,5 +56,20 @@
     <app-root></app-root>
     <script type="module" src="/build/app.esm.js"></script>
     <script nomodule src="/build/app.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      defer
+      src="https://www.googletagmanager.com/gtag/js?id=UA-169184724-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-169184724-1");
+    </script>
   </body>
 </html>
