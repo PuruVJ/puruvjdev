@@ -18,7 +18,7 @@ export class AppNav {
     return [
       <header>
         <div id="navigation">
-          <stencil-route-link anchorClass="nav-link" url="/">
+          <stencil-route-link ariaLabel="Go to Home" anchorClass="nav-link" url="/">
             <div
               class={{
                 "nav-item": !0,
@@ -31,7 +31,7 @@ export class AppNav {
               <div class="text">Home</div>
             </div>
           </stencil-route-link>
-          <stencil-route-link anchorClass="nav-link" url="/blog">
+          <stencil-route-link ariaLabel="Go to Blog" anchorClass="nav-link" url="/blog">
             <div
               class={{
                 "nav-item": !0,
