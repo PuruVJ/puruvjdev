@@ -1,4 +1,5 @@
 import { Build, Component, ComponentInterface, h, State } from "@stencil/core";
+import Typewriter from "typewriter-effect/dist/core";
 
 @Component({
   tag: "app-home",
@@ -11,9 +12,7 @@ export class AppHome implements ComponentInterface {
   /**
    * Initialize the typewriter
    */
-  async initTypewriter() {
-    const Typewriter = await import("typewriter-effect/dist/core");
-
+  initTypewriter() {
     new Typewriter("#typewriter", {
       strings: [
         "codes",
@@ -36,7 +35,7 @@ export class AppHome implements ComponentInterface {
   }
 
   async componentDidLoad() {
-    Build.isBrowser && (await this.initTypewriter());
+    Build.isBrowser && this.initTypewriter();
 
     // Show everything
     setTimeout(() => (this.allHidden = false), 50);
