@@ -34,6 +34,7 @@ export class AppRoot {
               href="https://twitter.com/puruvjdev"
               target="_blank"
               rel="noopener"
+              aria-label="Puru Vijay's Twitter link"
             >
               <AppIcon path={mdiTwitter} />
             </a>

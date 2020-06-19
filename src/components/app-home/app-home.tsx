@@ -1,5 +1,4 @@
 import { Build, Component, ComponentInterface, h, State } from "@stencil/core";
-import Typewriter from "typewriter-effect/dist/core";
 
 @Component({
   tag: "app-home",
@@ -12,7 +11,9 @@ export class AppHome implements ComponentInterface {
   /**
    * Initialize the typewriter
    */
-  initTypewriter() {
+  async initTypewriter() {
+    const Typewriter = await import("typewriter-effect/dist/core");
+
     new Typewriter("#typewriter", {
       strings: [
         "codes",
@@ -35,7 +36,7 @@ export class AppHome implements ComponentInterface {
   }
 
   async componentDidLoad() {
-    Build.isBrowser && this.initTypewriter();
+    Build.isBrowser && (await this.initTypewriter());
 
     // Show everything
     setTimeout(() => (this.allHidden = false), 50);
@@ -51,6 +52,7 @@ export class AppHome implements ComponentInterface {
     return [
       <div class={{ "about-container": !0, hidden: this.allHidden }}>
         <img
+          aria-hidden
           class="cover-image"
           src={`../../assets/art/programming-light.svg`}
         />

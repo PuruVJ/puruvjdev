@@ -31,7 +31,11 @@ export class BlogsOverview {
   render() {
     return [
       <div id="blogs-list-container" class={{ hidden: this.allHidden }}>
-        <img class="cover-image" src="../../assets/art/typewriter.svg" />
+        <img
+          aria-hidden
+          class="cover-image"
+          src="../../assets/art/typewriter.svg"
+        />
         <h1>Blog</h1>
         {this.blogsList.map(
           ({ id, title, description, date }, i, { length }) => (
