@@ -52,8 +52,8 @@ export class AppHome implements ComponentInterface {
     return [
       <div class={{ "about-container": !0, hidden: this.allHidden }}>
         <img
-          aria-hidden
           class="cover-image"
+          alt=""
           src={`../../assets/art/programming-light.svg`}
         />
         <h1 aria-hidden>
