@@ -31,11 +31,7 @@ export class BlogsOverview {
   render() {
     return [
       <div id="blogs-list-container" class={{ hidden: this.allHidden }}>
-        <img
-          aria-hidden
-          class="cover-image"
-          src="../../assets/art/typewriter.svg"
-        />
+        <img alt="" class="cover-image" src="../../assets/art/typewriter.svg" />
         <h1>Blog</h1>
         {this.blogsList.map(
           ({ id, title, description, date }, i, { length }) => (
@@ -45,9 +41,9 @@ export class BlogsOverview {
               url={`/blog/${id}`}
             >
               <div class={{ "blog-link": true, last: i + 1 === length }}>
-                <h2 id="title">{title}</h2>
-                <div id="description">{description}</div>
-                <div id="date-posted">{formatDate(date)}</div>
+                <h2 class="title">{title}</h2>
+                <div class="description">{description}</div>
+                <div class="date-posted">{formatDate(date)}</div>
               </div>
             </stencil-route-link>
           )

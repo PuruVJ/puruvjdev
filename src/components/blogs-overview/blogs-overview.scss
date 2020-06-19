@@ -26,11 +26,11 @@
   bottom: 0;
 }
 
-#title {
+.title {
   color: var(--app-color-primary);
 }
 
-#description {
+.description {
   color: var(--app-color-dark);
 }
 
@@ -44,7 +44,7 @@
   }
 }
 
-#date-posted {
+.date-posted {
   width: 100%;
   display: flex;
   justify-content: flex-end;
