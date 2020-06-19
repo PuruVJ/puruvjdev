@@ -56,7 +56,7 @@ export class AppHome implements ComponentInterface {
           class="cover-image"
           src={`../../assets/art/programming-light.svg`}
         />
-        <h1>
+        <h1 aria-hidden>
           Puru <span id="typewriter"></span>
         </h1>
         <h2 id="me-intro">
