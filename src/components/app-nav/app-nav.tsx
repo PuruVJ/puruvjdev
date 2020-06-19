@@ -16,7 +16,7 @@ export class AppNav {
 
   render() {
     return [
-      <header>
+      <nav>
         <div id="navigation">
           <stencil-route-link ariaLabel="Go to Home" anchorClass="nav-link" url="/">
             <div
@@ -45,7 +45,7 @@ export class AppNav {
             </div>
           </stencil-route-link>
         </div>
-      </header>,
+      </nav>,
     ];
   }
 }
