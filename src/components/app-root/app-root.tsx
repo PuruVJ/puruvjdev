@@ -2,6 +2,8 @@ import { mdiTwitter } from "@mdi/js";
 import { Component, h, Prop, Watch } from "@stencil/core";
 import { AppIcon } from "../../abstract-comps/app-icon";
 import { LocationSegments, injectHistory } from "@stencil/router";
+import Helmet from "@stencil/helmet";
+import { appState } from "../../state";
 
 @Component({
   tag: "app-root",
@@ -16,6 +18,10 @@ export class AppRoot {
       () => window.scrollTo({ top: 0, left: 0, behavior: "smooth" }),
       200
     );
+  }
+
+  componentDidLoad() {
+    console.log(appState.theme);
   }
 
   render() {
@@ -51,6 +57,12 @@ export class AppRoot {
           </span>
         </div>
       </footer>,
+      <Helmet>
+        <meta
+          name="theme-color"
+          content={appState.theme === "dark" ? "#222428" : "white"}
+        />
+      </Helmet>,
     ];
   }
 }
