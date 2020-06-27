@@ -4,8 +4,6 @@ description: My very first blog post on my very first functional site
 date: 31 May, 2020
 ---
 
-## Intro
-
 Hi I am Puru. This is my very first blog post. THE VERY FIRST.
 
 I will be writing all kinds of technical stuff here. Primarily to increase my own understanding of concepts(Looking at you, Scope and Hoisting), for stuff I found on 40<sup>th</sup> page on google but could not find it again. I will also write a post about how I made this super fast blog using StencilJS's (The coolest framework you've never heard of) Static site generation to create a fast and SEO friendly blog.

@@ -33,7 +33,7 @@ Web Workers allow us to create that lane, or in this context, another thread.
 
 > Using a Web Worker to create another thread enables us to have multiple threads. This process is called Multithreading. Here is a [<strike>Boring</strike> Technical Definition](<https://en.wikipedia.org/wiki/Multithreading_(computer_architecture)>).
 
-## How to use them
+# How to use them
 
 Using web workers is quite simple. Let's create a `index.js` file. This is where we'll initialize our worker.
 
@@ -84,7 +84,7 @@ And surely, the output comes out in the console.
 
 That's it.
 
-## What values can I pass into a worker?
+# What values can I pass into a worker?
 
 Any JSON Serializable value, like
 

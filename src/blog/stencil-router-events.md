@@ -14,7 +14,7 @@ I myself had to port an application from Stencil Router to Ion router just becau
 
 But after some searching and experimenting, I figured it out (No not time travel, I ain't Tony Stark). And it was staring me in the face. It was that simple. Its built right into the very core of Stencil's architechture.
 
-## Solution
+# Solution
 
 So here's your typical Stencil component.
 

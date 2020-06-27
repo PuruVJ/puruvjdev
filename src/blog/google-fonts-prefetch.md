@@ -8,7 +8,7 @@ You. Yes you, who is loading a 50-100kbs of fonts on your site, drop them. Use C
 
 Just Kidding. Use as many fonts as you need. I am myself loading 60kb of fonts on this very blog page, just a little more efficiently than the default approach.
 
-## Problem
+# Problem
 
 Using custom fonts isn't bad. They make a bold brand statement. Imagine Google's logo without its beautiful geometric font or Medium without its classic font.
 
@@ -18,7 +18,7 @@ But, if you look at stats, the average website uses about <mark> 50 - 70 KiloByt
 
 So we have to figure out ways to not let the loading time of fonts get in the way of User experience, while at the same time, respecting the user's data plan. In US, 60KB is basically dust, whereas in countries like Nigeria and India, 60KB can be **real** money.
 
-## Solution
+# Solution
 
 We are going to use the amazing resource hint tag.
 
@@ -69,7 +69,7 @@ But another thing is happening here.
 
 > If somehow, due to poor connectivity, the request fails, the `onerror` will try **again** to load the resource. This solution kills 2 birds with one bullet(proverbially only, off course)
 
-## Downsides
+# Downsides
 
 - Doesn't load the fonts if old browser or (at the time of writing) latest Safari.
 - Slightly degrades the experience for data saver users, but honestly, people are on a site because of the content primarily. Besides, if they have data saver on, this means their data speeds are very slow and data plans quite expensive. They will thank you for making a fast loading site.
