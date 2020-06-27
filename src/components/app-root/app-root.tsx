@@ -1,8 +1,8 @@
 import { mdiTwitter } from "@mdi/js";
-import { Component, h, Prop, Watch, Build } from "@stencil/core";
-import { AppIcon } from "../../abstract-comps/app-icon";
-import { LocationSegments, injectHistory } from "@stencil/router";
+import { Component, h, Prop, Watch } from "@stencil/core";
 import Helmet from "@stencil/helmet";
+import { injectHistory, LocationSegments } from "@stencil/router";
+import { AppIcon } from "../../abstract-comps/app-icon";
 import { appState } from "../../state";
 
 @Component({
@@ -58,12 +58,10 @@ export class AppRoot {
         </div>
       </footer>,
       <Helmet>
-        {Build.isBrowser && (
-          <meta
-            name="theme-color"
-            content={appState.theme === "dark" ? "#222428" : "white"}
-          />
-        )}
+        <meta
+          name="theme-color"
+          content={appState.theme === "dark" ? "#222428" : "white"}
+        />
       </Helmet>,
     ];
   }
