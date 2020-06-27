@@ -1,6 +1,5 @@
 import { mdiTwitter } from "@mdi/js";
 import { Component, h, Prop, Watch, Build } from "@stencil/core";
-import Helmet from "@stencil/helmet";
 import { injectHistory, LocationSegments } from "@stencil/router";
 import { AppIcon } from "../../abstract-comps/app-icon";
 import { appState } from "../../state";
@@ -21,7 +20,13 @@ export class AppRoot {
   }
 
   componentDidLoad() {
-    console.log(appState.theme);
+    if (Build.isBrowser) {
+      const meta: HTMLMetaElement = document.querySelector(
+        'meta[name="theme-color"]'
+      );
+      meta.content =
+        appState.theme === "dark" ? "#222428" : "rgb(254, 254, 254)";
+    }
   }
 
   render() {
@@ -57,12 +62,6 @@ export class AppRoot {
           </span>
         </div>
       </footer>,
-      <Helmet>
-        <meta
-          name="theme-color"
-          content={appState.theme === "dark" && Build.isBrowser ? "#222428" : "white"}
-        />
-      </Helmet>,
     ];
   }
 }
