@@ -165,4 +165,10 @@ This make our subconscious mind relate that site with closeness and suffocation.
 
 Rather, use a sidebar. And a narrow one if possible. Like this blog you're reading.
 
+> How I built my personal site series:
+>
+> Part 1: Tech Stack & Design (You're reading it 😊) <br /> > [Part 2: Blogging with Markdown](/blog/how-i-created-personal-site-part-2) <br/>
+> Part 3: Coming soon! <br />
+> Part 4: Coming soon! <br />
+
 > Thank you for reading. Please leave a review at my [Twitter Profile](https://twitter.com/puruvjdev)
