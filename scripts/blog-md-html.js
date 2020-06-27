@@ -45,14 +45,22 @@ const { JSDOM } = require("jsdom");
   const files = filesAbs.map((absFile) => `../src/blog/${absFile}`);
 
   // Let's do it
-  files.forEach(async (filePath, i) => {
+  for (let i = 0; i < files.length; i++) {
+    const filePath = files[i];
     const fileName = filesAbs[i].split(".")[0];
 
+    console.log(filePath);
     // Let's get the contents of the file
     const fileData = await readFile(filePath, "utf-8");
 
     // Get the metadata inside the markdown
     const { attributes, body } = fm(fileData);
+
+    const published =
+      attributes.published == null ? true : attributes.published;
+
+    // Skip everything if not published
+    if (!published) continue;
 
     // Reset the cover image if required
     attributes.cover_image =
@@ -95,5 +103,5 @@ const { JSDOM } = require("jsdom");
       `../src/assets/blog/${fileName}.json`,
       JSON.stringify({ ...attributes, body: html })
     );
-  });
+  }
 })();

@@ -1,5 +1,5 @@
 ---
-title: (Part 1) How I created my personal site
+title: (Part 1) Tech Stack & Design -  How I created my personal site
 date: 27 June, 2020 9:50
 description: In this post, I delve into the details of the design part of how I built my personal site with StencilJS and what did I use to do so.
 cover_image: assets/media/brick-wall.jpg
@@ -9,9 +9,11 @@ cover_image: assets/media/brick-wall.jpg
 
 Hi! In this blog post, I delve deep into the design part of how I created my personal website. I won't be going into the code. Feel free to look into my [Github Repo](https://github.com/puruvj/puruvjdev) for the the code.
 
-> This is the part 1 of a 2 part series.
+> How I built my personal site series:
 >
-> Part 2 deals with logic and actual writing part
+> Part 1: Tech Stack & Design (You're reading it 😊) <br /> > [Part 2: Blogging with Markdown](/blog/how-i-created-personal-site-part-2) <br/>
+> Part 3: Coming soon! <br />
+> Part 4: Coming soon! <br />
 
 # Why
 
@@ -88,7 +90,7 @@ There is a running joke in our industry that it takes 1 day to design the layout
 
 It's a little exaggerated, but kinda true. Choosing a color palette is quite difficult, for most designers.
 
-So after 3 hours, I reached a perfect color palette. Mostly white background(Duh! 🙄) with the primary color <mark>#6002ee</mark>. This for **light mode**.
+So after 3 hours, I found a perfect color palette. Mostly white background(Duh! 🙄) with the primary color <mark>#6002ee</mark>. This for **light mode**.
 
 For **dark mode**, the background is **#222428**(which is also the text color in light mode) and <mark>#714cfe</mark>.
 
@@ -143,6 +145,16 @@ Use animations, like fade-in/out on page transitions, like I'm using here. In na
 
 Transitions and animations can increase the emotional appeal of a site. They elevate the User Experience. If your site can make users feel good, their chances of coming back increases a lot. This is why companies like Google and Apple focus so much on good animations. This is why that amazing G-Mail animation exists.
 
+## Style Scrollbars
+
+Styling scrollbars is very easy. You just have to copy the code from StackOverflow and edit it(Cuz honestly, who can remember all those huge selectors 😏).
+
+Scrollbars as-of-now are editable only in Webkit based browsers, meaning Chromium-based browsers(Chrome, Brave, Edgium, Opera) and Safari only. Firefox, IE and legacy Edge don't support styling of scrollbars.
+
+> In my opinion, Firefox is not an issue. Their scrollbars look dope as hell 😎
+
+Scrollbars occupy very little real-estate on a page, but when done correctly, can take the look, authenticity and integrity of your site to the next level. A well designed site with default scrollbars just don't do it for anyone, whereas those slick curved transparent scrollbars just do it for everyone.
+
 ## Use what is good for you
 
 Fixed top-bars have been the most popular mode of navigation on Desktops since the inception of web itself. However in my opinion, a site with a text-heavy page would benefit more from _not-having_ a top bar.
@@ -153,6 +165,4 @@ This make our subconscious mind relate that site with closeness and suffocation.
 
 Rather, use a sidebar. And a narrow one if possible. Like this blog you're reading.
 
-<br>
-
-> This is it for part 1. Thank you for reading. The second part will be coming tomorrow.
+> Thank you for reading. Please leave a review at my [Twitter Profile](https://twitter.com/puruvjdev)

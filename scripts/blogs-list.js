@@ -1,4 +1,4 @@
-const { readdir, readFile, writeFile, stat } = require("fs").promises;
+const { readdir, readFile, writeFile } = require("fs").promises;
 const fm = require("front-matter");
 
 (async () => {
@@ -22,16 +22,17 @@ const fm = require("front-matter");
 
     // Get the metadata inside the markdown
     const {
-      attributes: { title, description, date },
+      attributes: { title, description, date, published = true },
     } = fm(data);
 
     // Let's push
-    finaldata.push({
-      title,
-      description,
-      date,
-      id: fileName,
-    });
+    published &&
+      finaldata.push({
+        title,
+        description,
+        date,
+        id: fileName,
+      });
   }
 
   // Write data
