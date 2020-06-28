@@ -171,9 +171,9 @@ These will come in mind for most people:
 - [prismjs](https://www.npmjs.com/package/prismjs)
 - [highlight.js](https://www.npmjs.com/package/highlight.js)
 
-These are good libraries. No doubt. They both integrate with `markdown-it` to generate highlighted code at build time only. They just lack one thing. VS Code level consistency.
+These are good libraries. No doubt. They both integrate with `markdown-it` to generate highlighted code at build time only. They just lack one thing: VS Code level consistency.
 
-They both can't highlight code the way VS Code days. If you use VS Code, you know what I'm talking about. Nothing beats VS Code at syntax highlighting. What if there was a way to use VS Code for syntax highlighting ...
+They both can't highlight code the way VS Code does. If you use VS Code, you know what I'm talking about. Nothing beats VS Code at syntax highlighting. What if there was a way to use VS Code for syntax highlighting ...
 
 Aha! There is a way. Lemme introduce you to the amazing and very underrated, [ShikiJS](https://github.com/octref/shiki).
 
@@ -232,4 +232,5 @@ There is some more dark magic I apply to this blog, but I will get to that in th
 > Part 3: Coming soon! <br />
 > Part 4: Coming soon! <br />
 
-> Thank you for reading this post. Please leave a review at my [Twitter profile](https://twitter.com/puruvj)
+
+ Thank you for reading this post. Please leave a review at my [Twitter profile](https://twitter.com/puruvj)
