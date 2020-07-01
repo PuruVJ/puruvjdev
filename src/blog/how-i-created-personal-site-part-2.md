@@ -12,7 +12,7 @@ published: true
 >
 > [Part 1: Tech Stack & Design](/blog/how-i-created-personal-site-part-1) <br />
 > Part 2: Blogging with Markdown (You're reading it 😊) <br />
-> Part 3: Coming soon! <br />
+> [Part 3: Image Optimization Automation with Incremental builds](/blog/how-i-created-personal-site-part-3) <br />
 > Part 4: Coming soon! <br />
 
 Hi! In this 2<sup>nd</sup> part of the series, I will expose the secret ingredient of what makes this blog work.
@@ -229,8 +229,7 @@ There is some more dark magic I apply to this blog, but I will get to that in th
 >
 > [Part 1: Tech Stack & Design](/blog/how-i-created-personal-site-part-1) <br />
 > Part 2: Blogging with Markdown (You're reading it 😊) <br />
-> Part 3: Coming soon! <br />
+> [Part 3: Image Optimization Automation with Incremental builds](/blog/how-i-created-personal-site-part-3) <br />
 > Part 4: Coming soon! <br />
 
-
- Thank you for reading this post. Please leave a review at my [Twitter profile](https://twitter.com/puruvj)
+Thank you for reading this post. Please leave a review at my [Twitter profile](https://twitter.com/puruvj)

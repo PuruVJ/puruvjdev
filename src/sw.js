@@ -50,23 +50,6 @@ workbox.routing.registerRoute(
   })
 );
 
-workbox.routing.registerRoute(
-  // Cache image files.
-  /\.(?:js|css|html)$/,
-  // Use the cache if it's available.
-  new workbox.strategies.StaleWhileRevalidate({
-    // Use a custom cache name.
-    cacheName: "static-cache",
-    plugins: [
-      new workbox.expiration.Plugin({
-        maxEntries: 1000,
-        // Cache for a maximum of a week.
-        maxAgeSeconds: 7 * 24 * 60 * 60,
-      }),
-    ],
-  })
-);
-
 self.workbox.routing.registerNavigationRoute('/index.html');
 
 self.workbox.precaching.precacheAndRoute([]);

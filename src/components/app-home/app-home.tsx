@@ -35,7 +35,13 @@ export class AppHome implements ComponentInterface {
   }
 
   async componentDidLoad() {
-    Build.isBrowser && this.initTypewriter();
+    if (Build.isBrowser) {
+      // Initialize typewriter
+      this.initTypewriter();
+
+      // Load lazysizes
+      await import("lazysizes");
+    }
 
     // Show everything
     setTimeout(() => (this.allHidden = false), 50);
@@ -51,7 +57,7 @@ export class AppHome implements ComponentInterface {
     return [
       <div class={{ "about-container": !0, hidden: this.allHidden }}>
         <img
-          class="cover-image"
+          class="cover-image lazyload"
           alt=""
           src={`../../assets/art/programming-light.svg`}
         />

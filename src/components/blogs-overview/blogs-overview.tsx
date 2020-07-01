@@ -1,4 +1,4 @@
-import { Component, h, State } from "@stencil/core";
+import { Component, h, State, Build } from "@stencil/core";
 import Helmet from "@stencil/helmet";
 import { IBlog } from "../../interfaces/blog.interface";
 
@@ -21,7 +21,11 @@ export class BlogsOverview {
     this.blogsList = await getBlogList();
   }
 
-  componentDidLoad() {
+  async componentDidLoad() {
+    if (Build.isBrowser) {
+      await import("lazysizes");
+    }
+
     // Show everything
     setTimeout(() => (this.allHidden = false), 50);
 
@@ -31,7 +35,11 @@ export class BlogsOverview {
   render() {
     return [
       <div id="blogs-list-container" class={{ hidden: this.allHidden }}>
-        <img alt="" class="cover-image" src="../../assets/art/typewriter.svg" />
+        <img
+          alt=""
+          class="cover-image lazyload"
+          src="../../assets/art/typewriter.svg"
+        />
         <h1>Blog</h1>
         {this.blogsList.map(
           ({ id, title, description, date }, i, { length }) => (
