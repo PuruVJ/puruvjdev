@@ -10,8 +10,7 @@ published: true
 
 > How I built my personal site series:
 >
-> [Part 1: Tech Stack & Design](/blog/how-i-created-personal-site-part-1) <br />
-> [Part 2: Blogging with Markdown](/blog/how-i-created-personal-site-part-2) <br />
+> [Part 1: Tech Stack & Design](/blog/how-i-created-personal-site-part-1) <br /> > [Part 2: Blogging with Markdown](/blog/how-i-created-personal-site-part-2) <br />
 > Part 3: Image Optimization Automation with Incremental builds (You're reading it 😊) <br />
 > Part 4: Coming soon! <br />
 
@@ -312,7 +311,7 @@ These are all the key parts of this crazy algorithm. I use some other hacks to g
 
 > How I built my personal site series:
 >
-> [Part 1: Tech Stack & Design](/blog/how-i-created-personal-site-part-1) <br /> > [Part 2: Blogging with Markdown](/blog/how-i-created-personal-site-part-2) <br />
+> [Part 1: Tech Stack & Design](/blog/how-i-created-personal-site-part-1) <br /> [Part 2: Blogging with Markdown](/blog/how-i-created-personal-site-part-2) <br />
 > Part 3: Image Optimization Automation with Incremental builds (You're reading it 😊) <br />
 > Part 4: Coming soon! <br />
 
