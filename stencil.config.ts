@@ -15,7 +15,7 @@ export const config: Config = {
         globIgnores: ["**/*.json"],
         globPatterns: ["**/*.{js,css,html,woff2,woff, svg}"],
       },
-      baseUrl: "https://puruvjdev.now.sh/",
+      baseUrl: "https://puruvj.dev",
       prerenderConfig: "./prerender-config.ts",
     },
   ],
