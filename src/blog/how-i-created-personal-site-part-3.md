@@ -11,7 +11,7 @@ published: true
 > How I built my personal site series:
 >
 > [Part 1: Tech Stack & Design](/blog/how-i-created-personal-site-part-1) <br /> > [Part 2: Blogging with Markdown](/blog/how-i-created-personal-site-part-2) <br />
-> Part 3: Image Optimization Automation with Incremental builds ((You're reading it 😊)) <br />
+> Part 3: Image Optimization Automation with Incremental builds (You're reading it 😊) <br />
 > Part 4: Coming soon! <br />
 
 Image Optimization. Ah, The bane of frontend devs! All that is slow with a site is responsible mostly because of images. These take up 100s of Kilobytes, and slow up the site heavily. What if we could just optimize our images so they wouldn't make the page slow?
@@ -312,7 +312,7 @@ These are all the key parts of this crazy algorithm. I use some other hacks to g
 > How I built my personal site series:
 >
 > [Part 1: Tech Stack & Design](/blog/how-i-created-personal-site-part-1) <br /> > [Part 2: Blogging with Markdown](/blog/how-i-created-personal-site-part-2) <br />
-> Part 3: Image Optimization Automation with Incremental builds ((You're reading it 😊)) <br />
+> Part 3: Image Optimization Automation with Incremental builds (You're reading it 😊) <br />
 > Part 4: Coming soon! <br />
 
 _If you liked this article, please leave a review at my [Twitter handle](https://twitter.com/puruvjdev)_
