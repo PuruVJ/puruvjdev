@@ -35,18 +35,15 @@ export class AppHome implements ComponentInterface {
   }
 
   async componentDidLoad() {
-    if (Build.isBrowser) {
-      // Initialize typewriter
-      this.initTypewriter();
-
-      // Load lazysizes
-      await import("lazysizes");
-    }
-
     // Show everything
     setTimeout(() => (this.allHidden = false), 50);
 
     document.title = "Puru, Developer and Designer";
+
+    if (Build.isBrowser) {
+      // Initialize typewriter
+      this.initTypewriter();
+    }
   }
 
   disconnectedCallback() {

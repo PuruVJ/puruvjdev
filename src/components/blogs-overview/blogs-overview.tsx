@@ -1,4 +1,4 @@
-import { Component, h, State, Build } from "@stencil/core";
+import { Component, h, State } from "@stencil/core";
 import Helmet from "@stencil/helmet";
 import { IBlog } from "../../interfaces/blog.interface";
 
@@ -22,10 +22,6 @@ export class BlogsOverview {
   }
 
   async componentDidLoad() {
-    if (Build.isBrowser) {
-      await import("lazysizes");
-    }
-
     // Show everything
     setTimeout(() => (this.allHidden = false), 50);
 
