@@ -26,7 +26,20 @@ export class BlogPage {
 
     document.title = `${this.blogData.title} // Puru`;
 
-    Build.isBrowser && (await import("lazysizes"));
+    if (Build.isBrowser) {
+      // For video tag
+      const interval = setInterval(function () {
+        document.querySelectorAll("video").forEach((vid) => {
+          const countForVideo = vid.readyState;
+          if (countForVideo == 4) {
+            vid.play();
+            clearInterval(interval);
+          }
+        });
+      }, 2000);
+
+      await import("lazysizes");
+    }
   }
 
   render() {
