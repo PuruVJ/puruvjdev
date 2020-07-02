@@ -14,7 +14,6 @@ const { getColorFromURL } = require("color-thief-node");
  */
 async function optimizeBlogImages(src) {
   // Start measuring
-  const startTime = new Date();
   console.log("Starting to retrieve/create image/data");
 
   // First off, don't optimize this image and save us some CPU time if it
@@ -62,43 +61,14 @@ async function optimizeBlogImages(src) {
     }
   } catch (e) {}
 
+  // The markup
+
   // Should not optimize
   if (!shouldOptimize) {
     // Log the time
     console.log(`Finished.`);
     console.log();
-    const [r, g, b] = list.color;
-    return `
-  <figure style="width: 100%;padding-top: ${
-    list.aspectHTW * 100
-  }%;background-color: rgb(${r}, ${g}, ${b})">
-    <picture>
-      <source
-        type="image/webp"
-        media="(min-width: 501px)"
-        data-srcset="${list.large.webp}"
-      ></source>
-      <source
-        type="image/webp"
-        media="(max-width: 500px)"
-        data-srcset="${list.small.webp}"
-      ></source>
-      <source
-        type="image/jpg"
-        media="(min-width: 501px)"
-        data-srcset="${list.large.jpg}"
-      ></source>
-      <source
-        type="image/jpg"
-        media="(max-width: 500px)"
-        data-srcset="${list.small.jpg}"
-      ></source>
-      <img alt="Placeholder"
-      data-src="${list.large.jpg}"
-      class="lazyload blog-img" />
-    </picture>
-  </figure>
-  `;
+    return markup(list);
   }
 
   // The image is optimizable. That means work, boys!
@@ -170,9 +140,13 @@ async function optimizeBlogImages(src) {
   console.log(`Finished`);
   console.log();
 
+  // Return the list
+  return markup(list);
+}
+
+function markup(list) {
   const [r, g, b] = list.color;
 
-  // Return the list
   return `
   <figure style="width: 100%;padding-top: ${
     list.aspectHTW * 100
