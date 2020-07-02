@@ -3,9 +3,11 @@ const fs = require("fs");
 const imagemin = require("imagemin");
 const webp = require("imagemin-webp");
 const jpg = require("imagemin-mozjpeg");
+const pngquant = require("imagemin-pngquant");
 const imgSize = require("image-size");
 const resizeImg = require("resize-img");
 const { getColorFromURL } = require("color-thief-node");
+const { optimizeGif } = require("./gif-module");
 
 /**
  * Optimize the image and create its different versions
@@ -21,7 +23,11 @@ async function optimizeBlogImages(src) {
   // First get the filename
   const [filePath] = src.split("/").reverse();
   const [fileName] = filePath.split(".");
+
+  const [format] = filePath.split(".").reverse();
   const folderPath = `../src/assets/media/${fileName}`;
+
+  console.log(format);
 
   const baseURL = "../../assets/media";
 
@@ -29,11 +35,11 @@ async function optimizeBlogImages(src) {
   const list = {
     large: {
       webp: `${baseURL}/${fileName}/large.webp`,
-      jpg: `${baseURL}/${fileName}/large.jpg`,
+      org: `${baseURL}/${fileName}/large.${format}`,
     },
     small: {
       webp: `${baseURL}/${fileName}/small.webp`,
-      jpg: `${baseURL}/${fileName}/small.jpg`,
+      org: `${baseURL}/${fileName}/small.${format}`,
     },
     aspectHTW: 1,
     color: [34, 34, 34],
@@ -48,27 +54,36 @@ async function optimizeBlogImages(src) {
       !!(await readdir(folderPath)).filter((file) => !file.endsWith("json"))
         .length;
 
-    if (!shouldOptimize) {
-      if ((await readdir(folderPath)).includes("data.json")) {
-        // The data file exists. Get the aspect ratio from there
-        const { aspectHTW, color } = JSON.parse(
-          await readFile(`${folderPath}/data.json`, "utf-8")
-        );
+    if (
+      !shouldOptimize &&
+      (await readdir(folderPath)).includes("data.json") &&
+      format !== "gif"
+    ) {
+      // The data file exists. Get the aspect ratio from there
+      const { aspectHTW, color } = JSON.parse(
+        await readFile(`${folderPath}/data.json`, "utf-8")
+      );
 
-        list.aspectHTW = aspectHTW;
-        list.color = color;
-      }
+      list.aspectHTW = aspectHTW;
+      list.color = color;
     }
   } catch (e) {}
 
   // The markup
 
-  // Should not optimize
-  if (!shouldOptimize) {
+  // Should not optimize, if not gif
+  if (!shouldOptimize && format !== "gif") {
     // Log the time
     console.log(`Finished.`);
     console.log();
-    return markup(list);
+    return markup(list, format);
+  }
+
+  // Optimize if GIF
+  if (format === "gif") {
+    // Do the gif-specific optimizations and return early
+    console.log('GIF detected!')
+    return await optimizeGif(fileName);
   }
 
   // The image is optimizable. That means work, boys!
@@ -79,7 +94,7 @@ async function optimizeBlogImages(src) {
 
   // Ok folder exists
   // Now let's get dimensions of the image
-  const dimensions = imgSize(`${folderPath}.jpg`);
+  const dimensions = imgSize(`${folderPath}.${format}`);
 
   // The aspect ratio
   list.aspectHTW = dimensions.height / dimensions.width;
@@ -87,7 +102,7 @@ async function optimizeBlogImages(src) {
   // Now resize the image
   const resizedImgBuffers = { large: "", small: "" };
 
-  const imgBuffer = fs.readFileSync(`${folderPath}.jpg`);
+  const imgBuffer = fs.readFileSync(`${folderPath}.${format}`);
 
   // Large
   resizedImgBuffers.large = await resizeImg(imgBuffer, {
@@ -102,11 +117,11 @@ async function optimizeBlogImages(src) {
   });
 
   // Write inside the folder
-  await writeFile(`${folderPath}/large.jpg`, resizedImgBuffers.large);
-  await writeFile(`${folderPath}/small.jpg`, resizedImgBuffers.small);
+  await writeFile(`${folderPath}/large.${format}`, resizedImgBuffers.large);
+  await writeFile(`${folderPath}/small.${format}`, resizedImgBuffers.small);
 
   // Now optimize and create copies
-  await imagemin([`${folderPath}/*.jpg`], {
+  await imagemin([`${folderPath}/*.{jpg, png}`], {
     destination: folderPath,
     plugins: [
       webp({
@@ -115,17 +130,20 @@ async function optimizeBlogImages(src) {
     ],
   });
 
-  await imagemin([`${folderPath}/*.jpg`], {
+  await imagemin([`${folderPath}/*.{jpg, png}`], {
     destination: folderPath,
     plugins: [
       jpg({
         quality: 85,
       }),
+      pngquant({
+        quality: [0.8, 0.9],
+      }),
     ],
   });
 
   // Finally get the dominant color
-  list.color = await getColorFromURL(`${folderPath}.jpg`);
+  list.color = await getColorFromURL(`${folderPath}.${format}`);
 
   // Also write the data.json
   await writeFile(
@@ -141,10 +159,10 @@ async function optimizeBlogImages(src) {
   console.log();
 
   // Return the list
-  return markup(list);
+  return markup(list, format);
 }
 
-function markup(list) {
+function markup(list, format) {
   const [r, g, b] = list.color;
 
   return `
@@ -163,17 +181,17 @@ function markup(list) {
         data-srcset="${list.small.webp}"
       ></source>
       <source
-        type="image/jpg"
+        type="image/${format}"
         media="(min-width: 501px)"
-        data-srcset="${list.large.jpg}"
+        data-srcset="${list.large.org}"
       ></source>
       <source
-        type="image/jpg"
+        type="image/${format}"
         media="(max-width: 500px)"
-        data-srcset="${list.small.jpg}"
+        data-srcset="${list.small.org}"
       ></source>
       <img alt="Placeholder"
-      data-src="${list.large.jpg}"
+      data-src="${list.large.org}"
       class="lazyload blog-img" />
     </picture>
   </figure>

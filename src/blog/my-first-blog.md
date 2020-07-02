@@ -10,6 +10,8 @@ I will be writing all kinds of technical stuff here. Primarily to increase my ow
 
 My writing and grammar is quite rusty at present, but no issues. I'll be improving it day by day by posting here something.
 
+![](../assets/media/dumbledore-pretty-hard.gif)
+
 Wait Wait Wait. Let me check if my code highlighting is working.
 
 ```tsx

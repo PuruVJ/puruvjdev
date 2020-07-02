@@ -148,6 +148,13 @@ a[href] {
 blog-page {
   video {
     max-width: 100%;
+    width: 15em;
+  }
+
+  .gif-vid-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   blockquote {
