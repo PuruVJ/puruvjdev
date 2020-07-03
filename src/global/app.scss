@@ -104,7 +104,7 @@ a[href]:not(.nav-link):not(.link-a) {
   }
 
   &:hover {
-    color: var(--app-color-primary-contrast);
+    color: var(--app-color-primary-contrast) !important;
 
     &::after {
       height: 100%;
