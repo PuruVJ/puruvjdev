@@ -91,7 +91,7 @@ a[href]:not(.nav-link) {
   transition: all 100ms ease-in;
   padding: 0 0.2rem;
 
-  &:after {
+  &::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -106,9 +106,10 @@ a[href]:not(.nav-link) {
   &:hover {
     color: var(--app-color-primary-contrast);
 
-    &:after {
+    &::after {
       height: 100%;
       background-color: var(--app-color-primary);
+      border-radius: 4px;
     }
   }
 }
