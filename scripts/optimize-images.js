@@ -49,10 +49,7 @@ async function optimizeBlogImages(src) {
 
   // Check if this folder exists
   try {
-    shouldOptimize =
-      !!(await access(folderPath)) &&
-      !!(await readdir(folderPath)).filter((file) => !file.endsWith("json"))
-        .length;
+    shouldOptimize = !!(await access(folderPath));
 
     if (
       !shouldOptimize &&
@@ -82,7 +79,7 @@ async function optimizeBlogImages(src) {
   // Optimize if GIF
   if (format === "gif") {
     // Do the gif-specific optimizations and return early
-    console.log('GIF detected!')
+    console.log("GIF detected!");
     return await optimizeGif(fileName);
   }
 
