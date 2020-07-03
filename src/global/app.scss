@@ -84,7 +84,7 @@ h2 {
   }
 }
 
-a[href]:not(.nav-link) {
+a[href]:not(.nav-link):not(.link-a) {
   color: var(--app-color-dark);
   font-weight: bold;
   position: relative;
