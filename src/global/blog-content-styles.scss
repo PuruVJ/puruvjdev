@@ -75,7 +75,8 @@ blog-page {
     padding-left: 1rem;
     border-left: solid 4px var(--app-color-primary);
     font-family: "Fira Code", monospace;
-    font-style: italic;
+    border-radius: 8px;
+    background-color: rgba(var(--app-color-dark-rgb), 0.05);
   }
 
   .picture-container {
