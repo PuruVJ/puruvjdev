@@ -85,7 +85,7 @@ h2 {
 }
 
 a[href]:not(.nav-link):not(.link-a) {
-  color: var(--app-color-primary) !important;
+  color: var(--app-color-primary);
   font-weight: bold;
   position: relative;
   transition: all 100ms ease-in;
