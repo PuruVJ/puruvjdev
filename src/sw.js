@@ -50,6 +50,4 @@ workbox.routing.registerRoute(
   })
 );
 
-self.workbox.routing.registerNavigationRoute('/index.html');
-
 self.workbox.precaching.precacheAndRoute([]);
