@@ -1,4 +1,4 @@
-import { Component, h, Build } from "@stencil/core";
+import { Component, h } from "@stencil/core";
 
 @Component({
   tag: "worked-with",
@@ -6,9 +6,6 @@ import { Component, h, Build } from "@stencil/core";
   scoped: true,
 })
 export class WorkedWith {
-  async componentDidLoad() {
-    Build.isBrowser && (await import("lazysizes"));
-  }
 
   render() {
     return list.map(({ name, url }) => (

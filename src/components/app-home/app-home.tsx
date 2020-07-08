@@ -43,6 +43,7 @@ export class AppHome implements ComponentInterface {
     if (Build.isBrowser) {
       // Initialize typewriter
       this.initTypewriter();
+      await import("lazysizes");
     }
   }
 
