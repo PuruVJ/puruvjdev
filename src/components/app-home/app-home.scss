@@ -30,6 +30,11 @@ h2#me-intro {
   }
 }
 
+h1.coded-name {
+  color: rgba(var(--app-color-primary-rgb), 1);
+  font-family: "Fira Code", monospace;
+}
+
 @media screen and (orientation: landscape) {
   :host {
     padding-left: 4.5rem;

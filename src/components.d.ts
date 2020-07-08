@@ -16,7 +16,6 @@ export namespace Components {
         "location": LocationSegments;
     }
     interface AppRoot {
-        "location": LocationSegments;
     }
     interface BlogPage {
         "match": MatchResults;
@@ -82,7 +81,6 @@ declare namespace LocalJSX {
         "location"?: LocationSegments;
     }
     interface AppRoot {
-        "location"?: LocationSegments;
     }
     interface BlogPage {
         "match"?: MatchResults;

@@ -1,5 +1,4 @@
-import { Build, Component, ComponentInterface, h, State } from "@stencil/core";
-import Typewriter from "typewriter-effect/dist/core";
+import { Component, ComponentInterface, h } from "@stencil/core";
 
 @Component({
   tag: "app-home",
@@ -7,61 +6,20 @@ import Typewriter from "typewriter-effect/dist/core";
   scoped: true,
 })
 export class AppHome implements ComponentInterface {
-  @State() allHidden: boolean = true;
-
-  /**
-   * Initialize the typewriter
-   */
-  initTypewriter() {
-    new Typewriter("#typewriter", {
-      strings: [
-        "codes",
-        "creates",
-        "debugs",
-        "makes mistakes",
-        "blogs",
-        "designs",
-        "creates bugs",
-        "fixes bugs",
-        "helps",
-        "naps",
-        "tweets",
-        "lives",
-        "jokes",
-      ],
-      autoStart: true,
-      loop: true,
-    });
-  }
 
   async componentDidLoad() {
-    // Show everything
-    setTimeout(() => (this.allHidden = false), 50);
-
     document.title = "Puru, Developer and Designer";
-
-    if (Build.isBrowser) {
-      // Initialize typewriter
-      this.initTypewriter();
-      await import("lazysizes");
-    }
-  }
-
-  disconnectedCallback() {
-    this.allHidden = true;
   }
 
   render() {
     return [
-      <div class={{ "about-container": !0, hidden: this.allHidden }}>
+      <div class={{ "about-container": !0 }}>
         <img
           class="cover-image lazyload"
           alt=""
           src={`../../assets/art/programming-light.svg`}
         />
-        <h1 aria-hidden>
-          Puru <span id="typewriter"></span>
-        </h1>
+        <h1 class="coded-name">// Puru Vijay</h1>
         <h2 id="me-intro">
           Hi, I am Puru. I am a self-taught fullstack web developer based in
           India. I make <mark>blazing fast</mark> and <mark>performant</mark>{" "}
