@@ -16,10 +16,7 @@ export class BlogPage {
   @State() allHidden = true;
 
   async componentWillLoad() {
-    // Get the data
-    if (Build.isServer || Build.isDev) {
-      this.blogData = await getBlogData(this.match.params.id);
-    }
+    this.blogData = await getBlogData(this.match.params.id);
   }
 
   async componentDidLoad() {
