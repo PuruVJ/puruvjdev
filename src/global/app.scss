@@ -91,7 +91,7 @@ a[href]:not(.nav-link):not(.link-a) {
   transition: all 100ms ease-in;
   padding: 0 0.2rem;
 
-  &::after {
+  &::before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -106,7 +106,7 @@ a[href]:not(.nav-link):not(.link-a) {
   &:hover {
     color: var(--app-color-primary-contrast) !important;
 
-    &::after {
+    &::before {
       height: 100%;
       background-color: var(--app-color-primary);
       border-radius: 4px;

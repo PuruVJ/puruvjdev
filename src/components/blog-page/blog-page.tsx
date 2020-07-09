@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, State } from "@stencil/core";
+import { Component, h, Host, Prop, State, Build } from "@stencil/core";
 import Helmet from "@stencil/helmet";
 import { injectHistory, MatchResults } from "@stencil/router";
 import { IBlog } from "../../interfaces/blog.interface";
@@ -13,20 +13,40 @@ export class BlogPage {
 
   @State() blogData: IBlog;
 
+  @State() allHidden = true;
+
   async componentWillLoad() {
     // Get the data
-    this.blogData = await getBlogData(this.match.params.id);
+    if (Build.isServer || Build.isDev) {
+      this.blogData = await getBlogData(this.match.params.id);
+    }
   }
 
   async componentDidLoad() {
     // Show everything
+    setTimeout(() => (this.allHidden = false), 50);
 
     document.title = `${this.blogData.title} // Puru`;
+
+    if (Build.isBrowser) {
+      // For video tag
+      const interval = setInterval(function () {
+        document.querySelectorAll("video").forEach((vid) => {
+          const countForVideo = vid.readyState;
+          if (countForVideo == 4) {
+            vid.play();
+            clearInterval(interval);
+          }
+        });
+      }, 2000);
+
+      await import("lazysizes");
+    }
   }
 
   render() {
     return (
-      <Host>
+      <Host class={{ hidden: this.allHidden }}>
         <div id="blog-content">
           <h1>{this.blogData.title}</h1>
           <b>

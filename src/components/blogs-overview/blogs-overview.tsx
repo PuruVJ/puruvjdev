@@ -10,15 +10,27 @@ import { IBlog } from "../../interfaces/blog.interface";
 export class BlogsOverview {
   @State() blogsList: IBlog[] = [];
 
+  /**
+   * Whether everything is hidden
+   */
+  @State() allHidden: boolean = true;
+
   pageTitle = "Blog // Puru";
 
   async componentWillLoad() {
     this.blogsList = await getBlogList();
   }
 
+  async componentDidLoad() {
+    // Show everything
+    setTimeout(() => (this.allHidden = false), 50);
+
+    document.title = this.pageTitle;
+  }
+
   render() {
     return [
-      <div id="blogs-list-container">
+      <div id="blogs-list-container" class={{ hidden: this.allHidden }}>
         <img
           alt=""
           class="cover-image lazyload"

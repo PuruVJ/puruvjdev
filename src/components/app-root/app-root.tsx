@@ -1,6 +1,7 @@
 import { mdiTwitter } from "@mdi/js";
-import { Component, h } from "@stencil/core";
+import { Component, h, Prop, Watch } from "@stencil/core";
 import { AppIcon } from "../../abstract-comps/app-icon";
+import { LocationSegments, injectHistory } from "@stencil/router";
 
 @Component({
   tag: "app-root",
@@ -8,6 +9,15 @@ import { AppIcon } from "../../abstract-comps/app-icon";
   scoped: true,
 })
 export class AppRoot {
+  @Prop() location: LocationSegments;
+
+  @Watch("location") onRouteChange() {
+    setTimeout(
+      () => window.scrollTo({ top: 0, left: 0, behavior: "smooth" }),
+      200
+    );
+  }
+
   render() {
     return [
       <app-nav />,
@@ -45,3 +55,5 @@ export class AppRoot {
     ];
   }
 }
+
+injectHistory(AppRoot);
