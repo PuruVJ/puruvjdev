@@ -83,7 +83,7 @@ async function optimizeBlogImages(src) {
 
     if (shouldOptimize) await optimizeGif(fileName);
 
-    return gifMarkup();
+    return gifMarkup(fileName);
   }
 
   // The image is optimizable. That means work, boys!

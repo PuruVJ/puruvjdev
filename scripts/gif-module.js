@@ -35,7 +35,7 @@ async function optimizeGif(fileName = "dumbledore-pretty-hard") {
   console.log();
 }
 
-function gifMarkup() {
+function gifMarkup(fileName) {
   const baseForMarkup = `../../assets/media/${fileName}`;
 
   return `
