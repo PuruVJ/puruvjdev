@@ -81,7 +81,7 @@ async function optimizeBlogImages(src) {
     // Do the gif-specific optimizations and return early
     console.log("GIF detected!");
 
-    if (!shouldOptimize) await optimizeGif(fileName);
+    if (shouldOptimize) await optimizeGif(fileName);
 
     return gifMarkup();
   }
