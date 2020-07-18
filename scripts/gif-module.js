@@ -14,7 +14,6 @@ const ffmpeg = require("fluent-ffmpeg")()
 async function optimizeGif(fileName = "dumbledore-pretty-hard") {
   const gifPath = `../src/assets/media/${fileName}.gif`;
   const folderPath = `../src/assets/media/${fileName}`;
-  const baseForMarkup = `../../assets/media/${fileName}`;
 
   try {
     await mkdir(folderPath);
@@ -34,6 +33,10 @@ async function optimizeGif(fileName = "dumbledore-pretty-hard") {
   );
   console.log(`Done with GIF: ${fileName}`);
   console.log();
+}
+
+function gifMarkup() {
+  const baseForMarkup = `../../assets/media/${fileName}`;
 
   return `
   <div class="gif-vid-container">
@@ -45,4 +48,4 @@ async function optimizeGif(fileName = "dumbledore-pretty-hard") {
   `;
 }
 
-module.exports = { optimizeGif };
+module.exports = { optimizeGif, gifMarkup };

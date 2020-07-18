@@ -7,7 +7,7 @@ const pngquant = require("imagemin-pngquant");
 const imgSize = require("image-size");
 const resizeImg = require("resize-img");
 const { getColorFromURL } = require("color-thief-node");
-const { optimizeGif } = require("./gif-module");
+const { optimizeGif, gifMarkup } = require("./gif-module");
 
 /**
  * Optimize the image and create its different versions
@@ -80,7 +80,10 @@ async function optimizeBlogImages(src) {
   if (format === "gif") {
     // Do the gif-specific optimizations and return early
     console.log("GIF detected!");
-    return await optimizeGif(fileName);
+
+    if (!shouldOptimize) await optimizeGif(fileName);
+
+    return gifMarkup();
   }
 
   // The image is optimizable. That means work, boys!
