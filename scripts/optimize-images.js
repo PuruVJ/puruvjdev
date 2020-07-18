@@ -106,8 +106,8 @@ async function optimizeBlogImages(src) {
 
   // Large
   resizedImgBuffers.large = await resizeImg(imgBuffer, {
-    width: 1000,
-    height: list.aspectHTW * 1000,
+    width: 1200,
+    height: list.aspectHTW * 1200,
   });
 
   // Small
@@ -125,7 +125,7 @@ async function optimizeBlogImages(src) {
     destination: folderPath,
     plugins: [
       webp({
-        quality: 80,
+        quality: 82,
       }),
     ],
   });
@@ -134,7 +134,7 @@ async function optimizeBlogImages(src) {
     destination: folderPath,
     plugins: [
       jpg({
-        quality: 80,
+        quality: 82,
       }),
       pngquant({
         quality: [0.8, 0.85],
