@@ -26,16 +26,15 @@ export class BlogPage {
     document.title = `${this.blogData.title} // Puru`;
 
     if (Build.isBrowser) {
-      // For video tag
-      const interval = setInterval(function () {
+      // If is IOS or IPad
+      const ua = window.navigator.userAgent;
+      const isIOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+
+      if (isIOS) {
         document.querySelectorAll("video").forEach((vid) => {
-          const countForVideo = vid.readyState;
-          if (countForVideo == 4) {
-            vid.play();
-            clearInterval(interval);
-          }
+          vid.controls = true;
         });
-      }, 2000);
+      }
 
       await import("lazysizes");
     }
