@@ -24,6 +24,7 @@ async function optimizeGif(fileName = "dumbledore-pretty-hard") {
     ffmpeg
       .input(gifPath)
       .noAudio()
+      .videoCodec('libx264')
       .on("end", () => {
         resolve();
       })
