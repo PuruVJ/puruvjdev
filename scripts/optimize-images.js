@@ -27,7 +27,7 @@ async function optimizeBlogImages(src) {
   const [format] = filePath.split(".").reverse();
   const folderPath = `../src/assets/media/${fileName}`;
 
-  console.log(format);
+  console.log(format); 
 
   const baseURL = "../../assets/media";
 
