@@ -27,7 +27,6 @@ async function optimizeGif(fileName = "dumbledore-pretty-hard") {
       .on("end", () => {
         resolve();
       })
-      .output(`${folderPath}/vidgif.webm`)
       .output(`${folderPath}/vidgif.mp4`)
       .run()
   );
@@ -41,8 +40,8 @@ function gifMarkup(fileName) {
   return `
   <div class="gif-vid-container">
     <video autoplay loop muted playsinline>
-      <source src="${baseForMarkup}/vidgif.webm" type="video/webm">
       <source src="${baseForMarkup}/vidgif.mp4" type="video/mp4">
+      <img src="${baseForMarkup}.gif" />
     </video>
   </div>
   `;
