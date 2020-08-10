@@ -22,7 +22,7 @@ export class BlogPage {
   async componentDidLoad() {
     // Show everything
     setTimeout(() => (this.allHidden = false), 50);
-
+ 
     document.title = `${this.blogData.title} // Puru`;
 
     if (Build.isBrowser) {
