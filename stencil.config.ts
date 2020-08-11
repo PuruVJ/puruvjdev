@@ -17,13 +17,13 @@ export const config: Config = {
       },
       baseUrl: "https://puruvj.dev",
       prerenderConfig: "./prerender-config.ts",
+      copy: [
+        {
+          src: "./google7cdade01e9ae4685.html",
+          dest: "google7cdade01e9ae4685.html",
+        },
+      ],
     },
   ],
   plugins: [sass({ includePaths: ["./node_modules/"] })],
-  copy: [
-    {
-      src: "./google7cdade01e9ae4685.html",
-      dest: "google7cdade01e9ae4685.html",
-    },
-  ],
 };

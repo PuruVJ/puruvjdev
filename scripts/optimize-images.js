@@ -27,7 +27,7 @@ async function optimizeBlogImages(src) {
   const [format] = filePath.split(".").reverse();
   const folderPath = `../src/assets/media/${fileName}`;
 
-  console.log(format); 
+  console.log(format);
 
   const baseURL = "../../assets/media";
 
@@ -120,17 +120,23 @@ async function optimizeBlogImages(src) {
   await writeFile(`${folderPath}/large.${format}`, resizedImgBuffers.large);
   await writeFile(`${folderPath}/small.${format}`, resizedImgBuffers.small);
 
-  // Now optimize and create copies
-  await imagemin([`${folderPath}/*.{jpg, png}`], {
-    destination: folderPath,
-    plugins: [
-      webp({
-        quality: 82,
-      }),
-    ],
-  });
-
-  await imagemin([`${folderPath}/*.{jpg, png}`], {
+  const fileGlob = [`${folderPath}/*.jpg`];
+  console.log(fileGlob[0]);
+  try {
+    // Now optimize and create copies
+    await imagemin(fileGlob, {
+      destination: folderPath,
+      plugins: [
+        webp({
+          quality: 82,
+        }),
+      ],
+    });
+  } catch (e) {
+    console.log(e);
+  }
+  
+  await imagemin(fileGlob, {
     destination: folderPath,
     plugins: [
       jpg({
