@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "cd scripts && node blogs-list.js && node blog-md-html.js",
     "build": "stencil build --prerender",
-    "postbuild": "cd scripts && node ping-google-search.js",
+    "postbuild": "curl http://www.google.com/ping?sitemap=https://puruvj.dev/sitemap.xml",
     "start": "stencil build --dev --watch --serve --no-open --port 1211"
   },
   "dependencies": {

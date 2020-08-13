@@ -13,7 +13,7 @@ export const config: Config = {
       serviceWorker: {
         swSrc: "src/sw.js",
         globIgnores: ["**/*.json"],
-        globPatterns: ["**/*.{js,css,html,woff2,woff, svg}"],
+        globPatterns: ["**/*.{js,css,html,woff2,woff,svg}"],
       },
       baseUrl: "https://puruvj.dev",
       prerenderConfig: "./prerender-config.ts",
