@@ -49,7 +49,7 @@ export class AppHome implements ComponentInterface {
 
   render() {
     return [
-      <div class={{ "about-container": !0, hidden: this.allHidden }}>
+      <div class={{ "about-container": !0 }}>
         <img
           class="cover-image lazyload"
           alt=""

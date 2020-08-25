@@ -43,7 +43,7 @@ export class BlogPage {
 
   render() {
     return (
-      <Host class={{ hidden: this.allHidden }}>
+      <Host>
         <div id="blog-content">
           <h1>{this.blogData.title}</h1>
           <b>

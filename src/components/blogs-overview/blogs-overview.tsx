@@ -30,7 +30,7 @@ export class BlogsOverview {
 
   render() {
     return [
-      <div id="blogs-list-container" class={{ hidden: this.allHidden }}>
+      <div id="blogs-list-container">
         <img
           alt=""
           class="cover-image lazyload"
