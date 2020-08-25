@@ -1,4 +1,4 @@
-import { Build, Component, ComponentInterface, h, State } from "@stencil/core";
+import { Build, Component, ComponentInterface, h } from "@stencil/core";
 import Typewriter from "typewriter-effect/dist/core";
 
 @Component({
@@ -7,8 +7,6 @@ import Typewriter from "typewriter-effect/dist/core";
   scoped: true,
 })
 export class AppHome implements ComponentInterface {
-  @State() allHidden: boolean = true;
-
   /**
    * Initialize the typewriter
    */
@@ -36,9 +34,6 @@ export class AppHome implements ComponentInterface {
 
   async componentDidLoad() {
     document.title = "Puru, Developer and Designer";
-
-    // Show everything
-    setTimeout(() => (this.allHidden = false), 50);
 
     if (Build.isBrowser) {
       // Initialize typewriter

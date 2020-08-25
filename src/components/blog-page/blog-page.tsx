@@ -1,4 +1,4 @@
-import { Component, h, Host, Prop, State, Build } from "@stencil/core";
+import { Component, h, Host, Prop, State } from "@stencil/core";
 import Helmet from "@stencil/helmet";
 import { injectHistory, MatchResults } from "@stencil/router";
 import { IBlog } from "../../interfaces/blog.interface";
@@ -13,61 +13,39 @@ export class BlogPage {
 
   @State() blogData: IBlog;
 
-  @State() allHidden = true;
-
-  async componentWillLoad() {
-    this.blogData = await getBlogData(this.match.params.id);
-  }
-
   async componentDidLoad() {
-    // Show everything
-    setTimeout(() => (this.allHidden = false), 50);
+    document.title = `${this.blogData?.title} // Puru`;
 
-    document.title = `${this.blogData.title} // Puru`;
-
-    if (Build.isBrowser) {
-      // For video tag
-      const interval = setInterval(function () {
-        document.querySelectorAll("video").forEach((vid) => {
-          const countForVideo = vid.readyState;
-          if (countForVideo == 4) {
-            vid.play();
-            clearInterval(interval);
-          }
-        });
-      }, 2000);
-
-      await import("lazysizes");
-    }
+    this.blogData = await getBlogData(this.match.params.id);
   }
 
   render() {
     return (
       <Host>
         <div id="blog-content">
-          <h1>{this.blogData.title}</h1>
+          <h1>{this.blogData?.title}</h1>
           <b>
             Published on{" "}
             <span style={{ color: "var(--app-color-primary)" }}>
-              {formatDate(this.blogData.date)}
+              {this.blogData && formatDate(this.blogData.date)}
             </span>
           </b>
-          <div id="content" innerHTML={this.blogData.body}></div>
+          <div id="content" innerHTML={this.blogData?.body}></div>
         </div>
         <Helmet>
           {/* Default tags */}
-          <title>{`${this.blogData.title} // Puru`}</title>
-          <meta name="description" content={this.blogData.description} />
+          <title>{`${this.blogData?.title} // Puru`}</title>
+          <meta name="description" content={this.blogData?.description} />
 
           {/* OG tags */}
           <meta
             property="og:title"
-            content={`${this.blogData.title} // Puru`}
+            content={`${this.blogData?.title} // Puru`}
           />
-          <meta property="og:description" content={this.blogData.description} />
+          <meta property="og:description" content={this.blogData?.description} />
           <meta
             property="og:image"
-            content={`${window.location.origin}/${this.blogData.cover_image}`}
+            content={`${window.location.origin}/${this.blogData?.cover_image}`}
           />
           <meta property="og:url" content={window.location.href} />
         </Helmet>

@@ -10,22 +10,12 @@ import { IBlog } from "../../interfaces/blog.interface";
 export class BlogsOverview {
   @State() blogsList: IBlog[] = [];
 
-  /**
-   * Whether everything is hidden
-   */
-  @State() allHidden: boolean = true;
-
   pageTitle = "Blog // Puru";
 
-  async componentWillLoad() {
-    this.blogsList = await getBlogList();
-  }
-
   async componentDidLoad() {
-    // Show everything
-    setTimeout(() => (this.allHidden = false), 50);
-
     document.title = this.pageTitle;
+
+    this.blogsList = await getBlogList();
   }
 
   render() {
@@ -37,7 +27,7 @@ export class BlogsOverview {
           src="../../assets/art/typewriter.svg"
         />
         <h1>Blog</h1>
-        {this.blogsList.map(
+        {this.blogsList?.map(
           ({ id, title, description, date }, i, { length }) => (
             <stencil-route-link
               ariaLabel={`Blog Post: ${title}`}
