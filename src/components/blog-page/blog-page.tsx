@@ -14,9 +14,9 @@ export class BlogPage {
   @State() blogData: IBlog;
 
   async componentDidLoad() {
-    document.title = `${this.blogData?.title} // Puru`;
-
     this.blogData = await getBlogData(this.match.params.id);
+
+    document.title = `${this.blogData?.title} // Puru`;
   }
 
   render() {
