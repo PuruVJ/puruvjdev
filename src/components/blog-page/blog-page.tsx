@@ -35,8 +35,6 @@ export class BlogPage {
           vid.controls = true;
         });
       }
-
-      await import("lazysizes");
     }
   }
 
