@@ -44,7 +44,10 @@ export class BlogsOverview {
               anchorClass="link-a"
               url={`/blog/${id}`}
             >
-              <div class={{ "blog-link": true, last: i + 1 === length }}>
+              <div
+                onMouseOver={() => prefetchBlogPost(id)}
+                class={{ "blog-link": true, last: i + 1 === length }}
+              >
                 <h2 class="title">{title}</h2>
                 <div class="description">{description}</div>
                 <div class="date-posted">{formatDate(date)}</div>
@@ -75,6 +78,14 @@ export class BlogsOverview {
       </Helmet>,
     ];
   }
+}
+
+function prefetchBlogPost(id: string) {
+  const link = document.createElement("link");
+  link.rel = "prefetch";
+  link.href = `./assets/blog/${id}.json`;
+
+  document.head.appendChild(link);
 }
 
 // Let's retrieve the list of blogs
