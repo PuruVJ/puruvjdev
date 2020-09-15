@@ -18,7 +18,11 @@ export class AppNav {
     return [
       <nav>
         <div id="navigation">
-          <stencil-route-link ariaLabel="Go to Home" anchorClass="nav-link" url="/">
+          <stencil-route-link
+            ariaLabel="Go to Home"
+            anchorClass="nav-link"
+            url="/"
+          >
             <div
               class={{
                 "nav-item": !0,
@@ -31,12 +35,18 @@ export class AppNav {
               <div class="text">Home</div>
             </div>
           </stencil-route-link>
-          <stencil-route-link ariaLabel="Go to Blog" anchorClass="nav-link" url="/blog">
+          <stencil-route-link
+            ariaLabel="Go to Blog"
+            anchorClass="nav-link"
+            url="/blog"
+          >
             <div
               class={{
                 "nav-item": !0,
                 selected: this.location.pathname.includes("blog"),
               }}
+              onMouseOver={() => prefetchBlogsList()}
+              onFocus={() => prefetchBlogsList()}
             >
               <div class="icon">
                 <AppIcon path={mdiTextBoxOutline} />
@@ -51,3 +61,17 @@ export class AppNav {
 }
 
 injectHistory(AppNav);
+
+let prefetched = false;
+
+function prefetchBlogsList() {
+  if (prefetched) return;
+
+  const link = document.createElement("link");
+  link.rel = "prefetch";
+  link.href = "./assets/data/blogs-list.json";
+
+  document.head.appendChild(link);
+
+  link.onload = () => (prefetched = true);
+}
