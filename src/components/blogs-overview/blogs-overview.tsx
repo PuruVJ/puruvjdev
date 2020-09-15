@@ -42,12 +42,11 @@ export class BlogsOverview {
             <stencil-route-link
               ariaLabel={`Blog Post: ${title}`}
               anchorClass="link-a"
+              onMouseOver={() => prefetchBlogPost(id)}
+              onFocus={() => prefetchBlogPost(id)}
               url={`/blog/${id}`}
             >
-              <div
-                onMouseOver={() => prefetchBlogPost(id)}
-                class={{ "blog-link": true, last: i + 1 === length }}
-              >
+              <div class={{ "blog-link": true, last: i + 1 === length }}>
                 <h2 class="title">{title}</h2>
                 <div class="description">{description}</div>
                 <div class="date-posted">{formatDate(date)}</div>
